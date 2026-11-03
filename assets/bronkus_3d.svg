@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bronchBgGrad" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#15263a"/>
+      <stop offset="60%" stop-color="#0a121e"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </radialGradient>
+
+    <!-- 3D Cyan Spot -->
+    <radialGradient id="bronchSpot" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Bronchial Cartilage Gradients -->
+    <linearGradient id="tracheaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="40%" stop-color="#e0f2fe"/>
+      <stop offset="70%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+
+    <linearGradient id="bronchRightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="bronchLeftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <filter id="bronchShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+
+    <filter id="airGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#bronchBgGrad)"/>
+  <ellipse cx="400" cy="240" rx="330" ry="200" fill="url(#bronchSpot)"/>
+
+  <!-- Unlabeled 3D Medical Axis Guidelines -->
+  <g opacity="0.08" stroke="#38bdf8" stroke-width="1">
+    <line x1="400" y1="30" x2="400" y2="450"/>
+    <ellipse cx="400" cy="240" rx="240" ry="160" fill="none" stroke-dasharray="6 6"/>
+  </g>
+
+  <!-- BRONCHIAL TREE 3D STRUCTURE (Percabangan Bronkus Kanan & Kiri) -->
+  <g filter="url(#bronchShadow)">
+    <!-- 1. Lower Trachea (Batang Tenggorok Utama di Bagian Tengah Atas) -->
+    <!-- Trachea Outer Tube -->
+    <path d="M 370,40 L 370,200 L 430,200 L 430,40 Z" fill="#0369a1" opacity="0.4"/>
+
+    <!-- Tracheal Rings (Cincin Tulang Rawan C-Shape) -->
+    <g fill="none" stroke="url(#tracheaGrad)" stroke-width="8" stroke-linecap="round">
+      <path d="M 365,55 C 385,62 415,62 435,55"/>
+      <path d="M 365,75 C 385,82 415,82 435,75"/>
+      <path d="M 365,95 C 385,102 415,102 435,95"/>
+      <path d="M 365,115 C 385,122 415,122 435,115"/>
+      <path d="M 365,135 C 385,142 415,142 435,135"/>
+      <path d="M 365,155 C 385,162 415,162 435,155"/>
+      <path d="M 365,175 C 385,182 415,182 435,175"/>
+    </g>
+
+    <!-- 2. Carina (Taji Pemisah Percabangan di Titik Temu) -->
+    <path d="M 370,195 C 390,205 400,215 400,225 C 400,215 410,205 430,195 Z" fill="#f8fafc" stroke="#38bdf8" stroke-width="2"/>
+
+    <!-- 3. RIGHT MAIN BRONCHUS (Bronkus Utama Kanan - Lebih Tegak, Pendek, & Lebar) -->
+    <!-- Inner Flow Shadow -->
+    <path d="M 370,195 
+             C 340,230 300,280 270,330 
+             L 230,315 
+             C 265,260 320,210 365,175 Z" 
+          fill="url(#bronchRightGrad)" opacity="0.85"/>
+
+    <!-- Right Bronchus Rings -->
+    <g fill="none" stroke="#e0f2fe" stroke-width="7" stroke-linecap="round">
+      <path d="M 360,195 C 340,210 325,230 315,245"/>
+      <path d="M 340,225 C 320,240 305,260 295,275"/>
+      <path d="M 320,255 C 300,270 285,290 275,305"/>
+      <path d="M 300,285 C 280,300 265,320 255,335"/>
+    </g>
+
+    <!-- Right Secondary (Lobar) Branches (3 Cabang Menuju 3 Lobus Kanan) -->
+    <!-- Superior Lobar -->
+    <path d="M 270,330 C 230,345 190,340 160,330" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 160,330 C 140,325 125,328 110,320" fill="none" stroke="#7dd3fc" stroke-width="3.5" stroke-linecap="round"/>
+    
+    <!-- Middle Lobar -->
+    <path d="M 255,340 C 235,370 210,395 180,410" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 180,410 C 160,420 140,425 120,430" fill="none" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Inferior Lobar -->
+    <path d="M 245,355 C 250,395 245,420 235,445" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- 4. LEFT MAIN BRONCHUS (Bronkus Utama Kiri - Lebih Mendatar, Panjang, & Lebih Ramping) -->
+    <!-- Inner Flow Shadow -->
+    <path d="M 430,195 
+             C 475,225 530,265 570,305 
+             L 550,330 
+             C 505,285 455,240 400,225 Z" 
+          fill="url(#bronchLeftGrad)" opacity="0.85"/>
+
+    <!-- Left Bronchus Rings -->
+    <g fill="none" stroke="#e0f2fe" stroke-width="6.5" stroke-linecap="round">
+      <path d="M 435,210 C 455,225 475,242 490,258"/>
+      <path d="M 465,232 C 485,247 505,264 520,280"/>
+      <path d="M 495,255 C 515,270 535,287 550,303"/>
+      <path d="M 525,278 C 545,293 565,310 580,326"/>
+    </g>
+
+    <!-- Left Secondary (Lobar) Branches (2 Cabang Menuju 2 Lobus Kiri) -->
+    <!-- Superior Lobar -->
+    <path d="M 570,305 C 615,310 655,300 690,285" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 690,285 C 715,275 730,270 745,260" fill="none" stroke="#7dd3fc" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Inferior Lobar -->
+    <path d="M 560,325 C 595,355 625,395 645,435" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 645,435 C 655,450 670,460 685,465" fill="none" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Internal Air Stream Glow (Visual Aliran Napas) -->
+    <path d="M 400,60 L 400,200 C 375,230 310,290 270,330" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.6" stroke-dasharray="8 6" filter="url(#airGlow)"/>
+    <path d="M 400,200 C 440,225 520,275 570,305" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.6" stroke-dasharray="8 6" filter="url(#airGlow)"/>
+  </g>
+
+  <!-- Clean Subtle 3D Glass Vignette Ring -->
+  <rect x="12" y="12" width="776" height="456" rx="28" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.2"/>
+</svg>
+

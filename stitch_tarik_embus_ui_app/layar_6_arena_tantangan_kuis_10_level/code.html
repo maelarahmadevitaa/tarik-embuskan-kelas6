@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;600;700&family=Quicksand:wght@600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@100..900&family=Quicksand:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface": "#faf8ff", "on-tertiary": "#ffffff", "inverse-surface": "#283044", "outline-variant": "#bfc7d2", "on-tertiary-container": "#fffbff", "surface-container-highest": "#dae2fd", "surface-bright": "#faf8ff", "primary-fixed": "#cce5ff", "on-surface-variant": "#3f4850", "tertiary-container": "#c05400", "secondary": "#006c4a", "error": "#ba1a1a", "on-background": "#131b2e", "surface-container-lowest": "#ffffff", "surface-container": "#eaedff", "on-tertiary-fixed-variant": "#783200", "on-tertiary-fixed": "#341100", "secondary-container": "#82f5c1", "on-error": "#ffffff", "surface-container-high": "#e2e7ff", "inverse-primary": "#93ccff", "background": "#faf8ff", "primary": "#006194", "on-secondary-fixed-variant": "#005137", "tertiary-fixed-dim": "#ffb690", "on-secondary": "#ffffff", "tertiary": "#994100", "primary-container": "#007bb9", "on-primary-container": "#fdfcff", "surface-container-low": "#f2f3ff", "on-secondary-fixed": "#002114", "error-container": "#ffdad6", "surface-variant": "#dae2fd", "secondary-fixed-dim": "#68dba9", "primary-fixed-dim": "#93ccff", "surface-dim": "#d2d9f4", "outline": "#707881", "on-error-container": "#93000a", "tertiary-fixed": "#ffdbca", "on-primary": "#ffffff", "secondary-fixed": "#85f8c4", "inverse-on-surface": "#eef0ff", "on-surface": "#131b2e", "on-secondary-container": "#00714e", "on-primary-fixed": "#001d31", "surface-tint": "#006398", "on-primary-fixed-variant": "#004b73" }, borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, spacing: { "space-xl": "3rem", "gutter-mobile": "1rem", "space-md": "1.25rem", "space-xs": "0.375rem", "margin": "2rem", "gutter": "1.5rem", "space-lg": "2rem", "margin-mobile": "1rem", "space-sm": "0.75rem" }, fontFamily: { "headline-sm": ["Quicksand"], "headline-xl-mobile": ["Quicksand"], "label-md": ["Quicksand"], "body-md": ["Nunito Sans"], "body-lg": ["Nunito Sans"], "label-sm": ["Quicksand"], "body-sm": ["Nunito Sans"], "headline-xl": ["Quicksand"], "headline-lg-mobile": ["Quicksand"], "headline-md": ["Quicksand"], "label-lg": ["Quicksand"], "headline-lg": ["Quicksand"] }, fontSize: { "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }], "label-md": ["14px", { "lineHeight": "18px", "fontWeight": "700" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-lg": ["16px", { "lineHeight": "22px", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,97,148,0.08)]"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><img alt="Logo Tarik dan Embuskan" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQEG-864K3Q56gtNRCaanvoFPFR1Zp3OP_bsmsH1Urze6rSaShR_budfu3YD54c6lTLBcDBIsohr5tlgM_TdZ0WXCRCKEiBt8rKXzRCIxMoJSu8zVXFZqid2bRUHZIn-rpBi0PeBuPwwsbu6LLTiDgmidk01gK5lbHxWGgSyc7cl7Xp6QHwMtRIKdiiYHxWBUTARQBR7FwU7r7puK5IrvPDklyKZg6c3odZhdBEvipTkOuYius6tLLpA"/><div class="flex flex-col"><span class="font-label-sm text-label-sm text-primary tracking-wide">IPA KELAS 6 SD</span><h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Arena Tantangan</h1></div></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 rounded-full bg-surface-container-high flex items-center justify-center text-primary shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] active:scale-95 transition-transform"><span class="material-symbols-outlined text-[24px]">stars</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_8px_rgba(0,97,148,0.15)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7YEY-xzgjJyr-Iow-h_nyzPtePFejE1eQ70i_UIj37eRAjUuAl4PevUfnry3v8Eqz3ixX18fPknvWpGwyaOY0rxBzYIM27Ht8FMtIQZvvuaR4sOD9rhmxlQrAPsMx7dteDvE0tgBvq8iScK0jJS6DQMR4eB2xYLT_eopbFWe3l8JiKQqJVJDkbYBVg3MlzwJk9ou4l45kwIUDOosszO2w8PPSxpJTLFezn-p_kQ55461K0Zmi8EfRTQ"/></div></div></header><main class="flex flex-col relative w-full pt-16 pb-28 bg-surface"><div class="flex flex-col w-full px-gutter-mobile space-y-space-md pb-6 select-none">
+<!-- HUD Game & Status Bar (Frosted Glass Tier 1) -->
+<div class="relative w-full rounded-2xl bg-surface-container-lowest/80 backdrop-blur-xl p-space-sm shadow-[0_10px_25px_-5px_rgba(0,97,148,0.12)] flex items-center justify-between">
+<!-- Nyawa / Health Bar -->
+<div class="flex items-center gap-1.5 bg-error-container/40 px-3 py-1.5 rounded-full">
+<div class="flex items-center space-x-0.5">
+<span class="material-symbols-outlined text-[20px] text-error" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="material-symbols-outlined text-[20px] text-error" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="material-symbols-outlined text-[20px] text-error" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">3/3</span>
+</div>
+<!-- Skor & Streak Poin -->
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center gap-1 bg-surface-container-high/90 px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm text-on-surface font-extrabold">1.450</span>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/60 px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary font-bold">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-on-secondary-container font-extrabold">Streak 4x</span>
+</div>
+</div>
+</div>
+<!-- Peta Jalur 10 Level Melengkung (BabyBus Style Journey) -->
+<div class="relative w-full rounded-3xl bg-surface-container-low/90 backdrop-blur-xl p-space-md shadow-[0_12px_30px_rgba(0,97,148,0.08)] overflow-hidden">
+<!-- Ambient Glow Dekoratif -->
+<div class="absolute -top-10 -right-10 w-36 h-36 bg-primary-fixed/50 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-36 h-36 bg-secondary-container/40 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-space-sm relative z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">explore</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Peta Ekspedisi Paru</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-primary/10 text-primary px-3 py-1 rounded-full font-bold">Level 4 / 10</span>
+</div>
+<!-- Scroll Jalur Level Horizontal yang Interaktif -->
+<div class="relative flex items-center gap-3 overflow-x-auto py-3 no-scrollbar scroll-smooth z-10">
+<!-- Level 1 (Selesai Hijau) -->
+<div class="flex flex-col items-center flex-shrink-0">
+<div class="w-14 h-14 rounded-2xl bg-secondary text-on-secondary flex flex-col items-center justify-center shadow-[0_6px_0px_#005137,0_10px_16px_rgba(0,108,74,0.3)] active:translate-y-1 transition-transform">
+<span class="font-headline-sm text-headline-sm font-extrabold leading-none">1</span>
+<div class="flex -space-x-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold mt-1.5">Rongga</span>
+</div>
+<!-- Connector Dot -->
+<div class="w-4 h-1.5 bg-secondary/40 rounded-full flex-shrink-0"></div>
+<!-- Level 2 (Selesai Biru) -->
+<div class="flex flex-col items-center flex-shrink-0">
+<div class="w-14 h-14 rounded-2xl bg-primary text-on-primary flex flex-col items-center justify-center shadow-[0_6px_0px_#004b73,0_10px_16px_rgba(0,97,148,0.3)] active:translate-y-1 transition-transform">
+<span class="font-headline-sm text-headline-sm font-extrabold leading-none">2</span>
+<div class="flex -space-x-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold mt-1.5">Faring</span>
+</div>
+<!-- Connector Dot -->
+<div class="w-4 h-1.5 bg-primary/40 rounded-full flex-shrink-0"></div>
+<!-- Level 3 (Selesai Ungu) -->
+<div class="flex flex-col items-center flex-shrink-0">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest text-primary flex flex-col items-center justify-center shadow-[0_6px_0px_#bfc7d2,0_10px_16px_rgba(0,0,0,0.06)] active:translate-y-1 transition-transform">
+<span class="font-headline-sm text-headline-sm font-extrabold leading-none">3</span>
+<div class="flex -space-x-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-outline-variant">star</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold mt-1.5">Epiglotis</span>
+</div>
+<!-- Connector Dot -->
+<div class="w-4 h-1.5 bg-tertiary/40 rounded-full flex-shrink-0"></div>
+<!-- Level 4 (Aktif - Menyala Emas Berkilau) -->
+<div class="flex flex-col items-center flex-shrink-0">
+<div class="relative">
+<div class="absolute -inset-1.5 bg-tertiary-fixed-dim rounded-3xl blur-md opacity-80 animate-pulse"></div>
+<div class="relative w-16 h-16 rounded-2xl bg-tertiary-container text-on-tertiary-container flex flex-col items-center justify-center shadow-[0_8px_0px_#783200,0_12px_24px_rgba(192,84,0,0.35)] scale-105">
+<span class="material-symbols-outlined text-[20px] text-on-tertiary-container">play_arrow</span>
+<span class="font-headline-sm text-headline-sm font-extrabold leading-tight">4</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-extrabold mt-2 animate-bounce">Aktif 🎯</span>
+</div>
+<!-- Connector Dot -->
+<div class="w-4 h-1.5 bg-outline-variant/50 rounded-full flex-shrink-0"></div>
+<!-- Level 5 (Terkunci) -->
+<div class="flex flex-col items-center flex-shrink-0 opacity-60">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high text-outline flex flex-col items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+<span class="font-label-sm text-label-sm font-bold">5</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-bold mt-1.5">Trakea</span>
+</div>
+<!-- Connector Dot -->
+<div class="w-4 h-1.5 bg-outline-variant/50 rounded-full flex-shrink-0"></div>
+<!-- Level 10 (Boss Level - Dokter Cilik Paru) -->
+<div class="flex flex-col items-center flex-shrink-0 opacity-70">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high text-tertiary flex flex-col items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[24px]">military_tech</span>
+<span class="font-label-sm text-label-sm font-bold">10</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-bold mt-1.5">Dokter Cilik</span>
+</div>
+</div>
+</div>
+<!-- Area Kuis Simulasi Interaktif (Level 4 Aktif) -->
+<div class="relative w-full rounded-3xl bg-surface-container-lowest/90 backdrop-blur-2xl p-space-md shadow-[0_16px_36px_rgba(0,97,148,0.1)] flex flex-col space-y-space-sm">
+<!-- Header Soal & Timer Tantangan -->
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold mb-1">
+          Tantangan #4
+        </span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tebak Posisi Anatomi Laring</h3>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-3 py-1 rounded-full text-primary font-bold">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+<span class="font-label-sm text-label-sm">01:45</span>
+</div>
+</div>
+<!-- Instruksi Interaktif Ceria -->
+<div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[22px]">touch_app</span>
+<p class="font-body-sm text-body-sm leading-snug">
+        Seret dan pasangkan <strong class="text-primary">Organ Laring</strong> ke kotak anatomi leher yang berpendar!
+      </p>
+</div>
+<!-- Kartu Simulasi Visual Anatomi Leher & Dada -->
+<div class="relative w-full h-72 rounded-2xl bg-gradient-to-b from-surface-container to-surface-container-lowest flex items-center justify-center overflow-hidden shadow-inner">
+<!-- Ilustrasi Anatomi Placeholder -->
+<img class="w-full h-full object-contain p-2 opacity-95" data-alt="A bright friendly educational vector illustration of a child's neck and chest showing anatomical respiratory system with transparent glowing organs, pastel blue, mint green, and coral shades, friendly cartoon style for elementary school science game" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsypH42iYs7xFD0QcIP8LcUaBbtSSkEkHA437bodDLI39knuVVlPpdDILmXFEPj6I-nA84Os2Wz4jW3ktrXZvJVxncR66g-HHS5Fp49FFc5FhkRuQUFUGdDHElG7QP5lxsBzqJNk8pgCn8CBaAvYSi4trjpMDIGdWuAVr0h3tziYctILKHWb_wOwLFKE-Y3lU9brKIKU305lLl3vyPo0-gwlNwvPhirjxkq99PisBSL9C-EOAnUfIagQ"/>
+<!-- Tombol Zoom Anatomi Floating -->
+<button class="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+        Zoom Leher
+      </button>
+<!-- Slot Target Interaktif Bertitik-titik Glowing (Posisi Laring) -->
+<div class="absolute top-24 w-40 h-14 rounded-2xl border-2 border-dashed border-primary bg-primary-fixed/30 backdrop-blur-sm flex items-center justify-center shadow-[0_0_15px_rgba(0,123,185,0.4)] animate-pulse">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span class="font-label-sm text-label-sm font-extrabold">Letakkan Di Sini</span>
+</div>
+</div>
+<!-- Tag Organ Terhubung Bawah (Trakea) -->
+<div class="absolute bottom-12 px-3 py-1 rounded-full bg-surface-container-highest/80 backdrop-blur-sm text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_downward</span>
+<span>Menuju Trakea & Paru</span>
+</div>
+</div>
+<!-- Rak Objek Pilihan Organ (Drag and Drop Items) -->
+<div class="space-y-space-xs pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Pilih & Tarik Organ yang Tepat:</span>
+<div class="grid grid-cols-3 gap-2">
+<!-- Item 1: Laring (Target Pilihan Utama) -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-2xl bg-primary-fixed text-on-primary-fixed shadow-[0_6px_0px_#93ccff,0_8px_16px_rgba(0,97,148,0.18)] active:translate-y-1 transition-all ring-2 ring-primary" id="organ-laring-btn">
+<span class="text-2xl mb-1">🗣️</span>
+<span class="font-label-sm text-label-sm font-extrabold text-center leading-tight">Laring</span>
+<span class="text-[10px] text-primary font-semibold">(Kotak Suara)</span>
+</button>
+<!-- Item 2: Trakea -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-2xl bg-surface-container-high text-on-surface shadow-[0_6px_0px_#bfc7d2] active:translate-y-1 transition-all">
+<span class="text-2xl mb-1">🎋</span>
+<span class="font-label-sm text-label-sm font-bold text-center leading-tight">Trakea</span>
+<span class="text-[10px] text-outline font-semibold">(Tenggorok)</span>
+</button>
+<!-- Item 3: Bronkus Kiri -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-2xl bg-surface-container-high text-on-surface shadow-[0_6px_0px_#bfc7d2] active:translate-y-1 transition-all">
+<span class="text-2xl mb-1">🌿</span>
+<span class="font-label-sm text-label-sm font-bold text-center leading-tight">Bronkus</span>
+<span class="text-[10px] text-outline font-semibold">(Cabang Kiri)</span>
+</button>
+</div>
+</div>
+<!-- Bar Aksi Bawah: Bantuan & Cek Jawaban -->
+<div class="flex items-center gap-space-sm pt-2">
+<!-- Tombol Petunjuk Guru (1x tersisa) -->
+<button class="flex-1 h-12 rounded-xl bg-surface-container text-tertiary font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-[0_4px_0px_#bfc7d2] active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span>Petunjuk (1x)</span>
+</button>
+<!-- Tombol Konfirmasi Jawaban Utama -->
+<button class="flex-[2] h-12 rounded-xl bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_6px_0px_#004b73,0_10px_20px_rgba(0,97,148,0.3)] active:translate-y-1 transition-all" id="btn-cek-jawaban">
+<span>Cek Jawaban Saya</span>
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+</button>
+</div>
+</div>
+<!-- Frosted Glass Modal Dialog: Remediasi / Kesempatan Belajar Ceria -->
+<!-- Komponen ini disajikan interaktif langsung di viewport dengan backdrop glassmorphism ramah -->
+<div class="relative w-full rounded-3xl bg-gradient-to-b from-error-container/85 to-surface-container-lowest/95 backdrop-blur-2xl p-space-md shadow-[0_20px_45px_-10px_rgba(186,26,26,0.2)] flex flex-col items-center text-center space-y-space-sm" id="modal-remediasi">
+<!-- Pita Header Status Pop-up -->
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest shadow-[0_8px_20px_rgba(186,26,26,0.2)] flex items-center justify-center -mt-6">
+<span class="text-3xl animate-bounce">🫁</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-error/10 text-error font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">favorite_border</span>
+<span>Nyawa Kuis Habis!</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Jangan Menyerah, Peneliti Cilik! 💪</h3>
+</div>
+<!-- Pesan Remediasi Edukatif -->
+<div class="p-space-sm rounded-2xl bg-surface-container-low/90 text-on-surface-variant font-body-sm text-body-sm leading-relaxed text-left space-y-2">
+<div class="flex items-center gap-2 text-primary font-bold font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span>Fakta Kunci Paru-Paru:</span>
+</div>
+<p>
+        Organ <strong class="text-on-surface">Laring (Kotak Suara)</strong> berada di bagian atas trakea. Fungsinya melindungi saluran napas sekaligus menghasilkan getaran suaramu saat berseru atau bernyanyi!
+      </p>
+</div>
+<!-- 2 Tombol Aksi Kaca Bantuan Utama -->
+<div class="w-full space-y-2 pt-1">
+<a class="w-full h-12 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_5px_0px_#004b73,0_8px_16px_rgba(0,97,148,0.25)] active:translate-y-0.5 transition-all" data-path="jelajah-materi" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span>Buka Materi Organ Pernapasan</span>
+</a>
+<a class="w-full h-12 rounded-xl bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_5px_0px_#005137,0_8px_16px_rgba(0,108,74,0.25)] active:translate-y-0.5 transition-all" data-path="lab-3d-interaktif" href="#">
+<span class="material-symbols-outlined text-[20px]">view_in_ar</span>
+<span>Coba Lagi di Lab Simulasi 3D</span>
+</a>
+<button class="w-full h-11 rounded-xl bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all" id="btn-isi-nyawa">
+<span class="material-symbols-outlined text-[18px] text-tertiary">restart_alt</span>
+<span>Ulangi Level Ini (Isi Ulang 3 Nyawa)</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interaction untuk simulasi game interaktif anak
+  (function() {
+    const organBtn = document.getElementById('organ-laring-btn');
+    const cekBtn = document.getElementById('btn-cek-jawaban');
+    const modalRemediasi = document.getElementById('modal-remediasi');
+    const btnIsiNyawa = document.getElementById('btn-isi-nyawa');
+
+    if (organBtn) {
+      organBtn.addEventListener('click', () => {
+        organBtn.classList.toggle('scale-105');
+        organBtn.classList.toggle('ring-4');
+        organBtn.classList.toggle('ring-tertiary');
+      });
+    }
+
+    if (cekBtn && modalRemediasi) {
+      cekBtn.addEventListener('click', () => {
+        modalRemediasi.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        modalRemediasi.classList.add('animate-pulse');
+        setTimeout(() => {
+          modalRemediasi.classList.remove('animate-pulse');
+        }, 1000);
+      });
+    }
+
+    if (btnIsiNyawa && modalRemediasi) {
+      btnIsiNyawa.addEventListener('click', () => {
+        modalRemediasi.classList.add('opacity-40');
+        setTimeout(() => {
+          modalRemediasi.classList.remove('opacity-40');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 400);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none px-gutter-mobile mb-2" data-active-classes="bg-primary text-on-primary shadow-[0_8px_20px_rgba(0,97,148,0.35)] scale-105"><div class="pointer-events-auto h-20 bg-surface-container-lowest/85 backdrop-blur-2xl rounded-xl shadow-[0_12px_36px_rgba(0,97,148,0.14)] px-space-xs flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[52px] h-14 rounded-lg px-space-xs text-on-surface-variant transition-all" data-path="beranda-siswa" href="#"><span class="material-symbols-outlined text-[24px]">cottage</span><span class="font-label-sm text-label-sm">Beranda</span></a><a class="flex flex-col items-center justify-center min-w-[52px] h-14 rounded-lg px-space-xs text-on-surface-variant transition-all" data-path="jelajah-materi" href="#"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="font-label-sm text-label-sm">Materi</span></a><a class="flex flex-col items-center justify-center min-w-[52px] h-14 rounded-lg px-space-xs text-on-surface-variant transition-all" data-path="lab-3d-interaktif" href="#"><span class="material-symbols-outlined text-[24px]">view_in_ar</span><span class="font-label-sm text-label-sm">Lab 3D</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[52px] h-14 rounded-lg px-space-xs transition-all bg-primary text-on-primary shadow-[0_8px_20px_rgba(0,97,148,0.35)] scale-105" data-path="arena-tantangan" href="#"><span class="material-symbols-outlined text-[24px]">sports_esports</span><span class="font-label-sm text-label-sm">Tantangan</span></a><a class="flex flex-col items-center justify-center min-w-[52px] h-14 rounded-lg px-space-xs text-on-surface-variant transition-all" data-path="portal-siswa" href="#"><span class="material-symbols-outlined text-[24px]">badge</span><span class="font-label-sm text-label-sm">Portal</span></a></div></nav></body></html>

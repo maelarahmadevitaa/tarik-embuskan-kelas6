@@ -1,0 +1,3167 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Tarik dan Embuskan: Sistem Pernapasan Manusia - IPA Kelas 6 SD</title>
+
+  <!-- Google Fonts & Tailwind CSS CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Three.js 3D WebGL Library for Real 3D Respiratory Organs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Custom Design System CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="text-slate-800 antialiased selection:bg-sky-200 selection:text-sky-900">
+
+  <!-- Ambient Floating Oxygen & Carbon Dioxide Bubbles Background -->
+  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
+    <div
+      class="floating-bubble bg-sky-200/40 text-sky-700 font-extrabold text-xs flex items-center justify-center w-12 h-12 shadow-sm"
+      style="top: 8%; left: 5%; animation-duration: 9s;">O₂</div>
+    <div
+      class="floating-bubble bg-emerald-200/40 text-emerald-700 font-extrabold text-xs flex items-center justify-center w-14 h-14 shadow-sm"
+      style="top: 25%; right: 7%; animation-duration: 7s; animation-delay: 1s;">CO₂</div>
+    <div
+      class="floating-bubble bg-amber-200/40 text-amber-800 font-extrabold text-xs flex items-center justify-center w-10 h-10 shadow-sm"
+      style="top: 60%; left: 8%; animation-duration: 8s; animation-delay: 2s;">O₂</div>
+    <div
+      class="floating-bubble bg-rose-200/30 text-rose-700 font-extrabold text-xs flex items-center justify-center w-16 h-16 shadow-sm"
+      style="bottom: 12%; right: 10%; animation-duration: 10s; animation-delay: 0.5s;">O₂</div>
+    <div
+      class="floating-bubble bg-teal-200/40 text-teal-800 font-extrabold text-xs flex items-center justify-center w-11 h-11 shadow-sm"
+      style="bottom: 25%; left: 22%; animation-duration: 8.5s; animation-delay: 3s;">CO₂</div>
+  </div>
+
+  <!-- Global App Top Navbar (Brand & Navigation) -->
+  <header class="sticky top-0 z-40 w-full bg-white/70 backdrop-blur-xl border-b border-white/60 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <!-- App Brand Logo & Title -->
+      <a href="javascript:void(0)" onclick="App.navigateTo('screen-portal')" class="flex items-center gap-3 group">
+        <div
+          class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-sky-400 to-teal-300 p-1 shadow-sm group-hover:scale-105 transition-transform"
+          id="mainAppLogo">
+          <!-- Lung SVG Injected -->
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span
+              class="font-heading text-lg font-extrabold bg-gradient-to-r from-sky-600 via-teal-600 to-orange-500 bg-clip-text text-transparent">
+              Tarik & Embuskan!
+            </span>
+            <span
+              class="hidden sm:inline-block px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-teal-100 text-teal-800 uppercase tracking-wide">
+              IPA KELAS 6
+            </span>
+          </div>
+          <span class="text-xs text-slate-500 font-semibold hidden sm:inline">Petualangan Seru Belajar Sistem Pernapasan
+            Manusia 🫁✨</span>
+        </div>
+      </a>
+
+      <!-- Quick Portal Switcher / Status -->
+      <div class="flex items-center gap-2">
+        <button onclick="App.navigateTo('screen-portal')"
+          class="px-3.5 py-1.5 rounded-full bg-slate-100/80 hover:bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-xs flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px] text-teal-600">swap_horiz</span>
+          <span class="hidden md:inline">Ganti Portal</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- LAYAR 1: HALAMAN UTAMA (SPLIT PORTAL LOGIN GURU & SISWA) - APPLE GLASS UI -->
+  <!-- ========================================================================= -->
+  <main id="screen-portal" class="screen-view active max-w-6xl mx-auto px-4 py-8 md:py-12">
+    <div style="width: 100%; max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+
+      <!-- Hero Header -->
+      <div style="text-align: center;">
+        <div
+          style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 1px 8px rgba(0,0,0,0.06); margin-bottom: 16px;">
+          <span
+            style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite;"></span>
+          <span
+            style="font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #065f46;">Kurikulum
+            Merdeka • Fase C • Bab 2 Pernapasan</span>
+        </div>
+        <h1
+          style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Quicksand', sans-serif; font-size: clamp(28px, 5vw, 48px); font-weight: 800; color: #0f172a; letter-spacing: -0.03em; margin-bottom: 10px; line-height: 1.15;">
+          Selamat Datang di Dunia<br><span
+            style="background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Pernapasan
+            Kita! 🫁</span>
+        </h1>
+        <p
+          style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Nunito Sans', sans-serif; font-size: 15px; color: #64748b; max-width: 520px; margin: 0 auto; font-weight: 450; line-height: 1.6;">
+          Pilih peranmu untuk memulai petualangan sains interaktif.
+        </p>
+      </div>
+
+      <!-- DUAL PORTAL CARDS — True Apple Glassmorphism -->
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: stretch;">
+
+        <!-- ====== PORTAL GURU (Kiri) ====== -->
+        <section id="portalCardGuru" class="portal-glass-card" style="
+          background: rgba(255, 255, 255, 0.15) !important;
+          backdrop-filter: blur(30px) saturate(150%) !important;
+          -webkit-backdrop-filter: blur(30px) saturate(150%) !important;
+          border: 1px solid rgba(255, 255, 255, 0.4) !important;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
+          border-radius: 24px !important;
+          padding: 32px 28px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.25s ease;
+        ">
+          <!-- Ambient glow decoration -->
+          <div
+            style="position:absolute; top:-40px; right:-40px; width:160px; height:160px; background: radial-gradient(circle, rgba(52,211,153,0.18) 0%, transparent 70%); pointer-events:none; border-radius:50%;">
+          </div>
+          <div
+            style="position:absolute; bottom:-40px; left:-40px; width:140px; height:140px; background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%); pointer-events:none; border-radius:50%;">
+          </div>
+
+          <div style="position:relative; z-index:1;">
+            <!-- Card Header -->
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">
+              <div
+                style="width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.9); padding: 3px; box-shadow: 0 4px 12px rgba(5,150,105,0.18); border: 1.5px solid rgba(167,243,208,0.8); flex-shrink: 0; overflow: hidden;"
+                id="portalGuruMascot">
+                <!-- SVG Teacher Mascot -->
+              </div>
+              <div>
+                <div
+                  style="display: inline-block; padding: 3px 10px; border-radius: 9999px; background: rgba(209,250,229,0.8); color: #065f46; font-size: 11px; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; letter-spacing: 0.02em; margin-bottom: 5px; border: 1px solid rgba(110,231,183,0.4);">
+                  Ruang Manajemen Pendidik 👩‍🏫
+                </div>
+                <h2
+                  style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Quicksand', sans-serif; font-size: 22px; font-weight: 700; color: #0f172a; line-height: 1.2; margin: 0;">
+                  Masuk Portal Guru</h2>
+              </div>
+            </div>
+
+            <!-- Form Login Guru (Hanya 2 Input: Username & Kata Sandi) -->
+            <form id="formLoginGuru" novalidate
+              onsubmit="event.preventDefault(); App.handleLoginGuru(event); return false;"
+              style="display: flex; flex-direction: column; gap: 16px;">
+              <!-- Field 1: Username -->
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="teacher-name"
+                  style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; font-size: 12px; font-weight: 600; color: #374151; display: flex; align-items: center; gap: 6px; letter-spacing: 0.01em;">
+                  <span class="material-symbols-outlined" style="font-size: 15px; color: #059669;">person</span>
+                  Username Pendidik
+                </label>
+                <input type="text" id="teacher-name" placeholder="Masukkan username (bebas)" autocomplete="username"
+                  style="width: 100%; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.6); border-radius: 12px; padding: 11px 16px; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; color: #1e293b; outline: none; transition: border-color 0.2s, background 0.2s; box-shadow: none;"
+                  onfocus="this.style.borderColor='#16a34a';this.style.background='rgba(255,255,255,0.95)'"
+                  onblur="this.style.borderColor='rgba(255,255,255,0.6)';this.style.background='rgba(255,255,255,0.7)'" />
+              </div>
+
+              <!-- Field 2: Kata Sandi -->
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="teacher-password"
+                  style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; font-size: 12px; font-weight: 600; color: #374151; display: flex; align-items: center; gap: 6px; letter-spacing: 0.01em;">
+                  <span class="material-symbols-outlined" style="font-size: 15px; color: #059669;">lock</span>
+                  <span>Kata Sandi</span>
+                </label>
+                <div style="position: relative; display: flex; align-items: center;">
+                  <input type="password" id="teacher-password" placeholder="Masukkan kata sandi"
+                    autocomplete="current-password"
+                    style="width: 100%; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.6); border-radius: 12px; padding: 11px 44px 11px 16px; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; color: #1e293b; outline: none; transition: border-color 0.2s, background 0.2s; box-shadow: none;"
+                    onfocus="this.style.borderColor='#16a34a';this.style.background='rgba(255,255,255,0.95)'"
+                    onblur="this.style.borderColor='rgba(255,255,255,0.6)';this.style.background='rgba(255,255,255,0.7)'" />
+                  <button type="button" onclick="App.togglePassword('teacher-password', this)"
+                    style="position: absolute; right: 12px; background: none; border: none; cursor: pointer; color: #94a3b8; padding: 4px; display: flex; align-items: center;"
+                    title="Lihat kata sandi">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 6px;">
+                <!-- Primary CTA: Solid green Apple style -->
+                <button type="button" id="btnSubmitLoginGuru"
+                  onclick="event.preventDefault(); App.handleLoginGuru(event);" style="
+                  width: 100%; padding: 13px 20px;
+                  background: #16a34a !important;
+                  color: #ffffff !important;
+                  border: none !important; border-radius: 12px !important;
+                  box-shadow: none !important;
+                  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+                  font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+                  cursor: pointer;
+                  display: flex; align-items: center; justify-content: center; gap: 8px;
+                  transition: opacity 0.15s ease, transform 0.15s ease;
+                " onmouseenter="this.style.opacity='0.92'" onmouseleave="this.style.opacity='1'"
+                  onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">dashboard</span>
+                  <span>Masuk ke Portal Guru</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ====== PORTAL SISWA (Kanan) ====== -->
+        <section id="portalCardSiswa" class="portal-glass-card" style="
+          background: rgba(255, 255, 255, 0.15) !important;
+          backdrop-filter: blur(30px) saturate(150%) !important;
+          -webkit-backdrop-filter: blur(30px) saturate(150%) !important;
+          border: 1px solid rgba(255, 255, 255, 0.4) !important;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
+          border-radius: 24px !important;
+          padding: 32px 28px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.25s ease;
+        ">
+          <!-- Ambient glow decoration -->
+          <div
+            style="position:absolute; top:-40px; right:-40px; width:160px; height:160px; background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%); pointer-events:none; border-radius:50%;">
+          </div>
+          <div
+            style="position:absolute; bottom:-40px; left:-40px; width:140px; height:140px; background: radial-gradient(circle, rgba(251,146,60,0.10) 0%, transparent 70%); pointer-events:none; border-radius:50%;">
+          </div>
+
+          <div style="position:relative; z-index:1;">
+            <!-- Card Header -->
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">
+              <div
+                style="width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.9); padding: 3px; box-shadow: 0 4px 12px rgba(2,132,199,0.18); border: 1.5px solid rgba(186,230,253,0.8); flex-shrink: 0; overflow: hidden;"
+                id="portalSiswaMascot">
+                <!-- SVG Student Mascot -->
+              </div>
+              <div>
+                <div
+                  style="display: inline-block; padding: 3px 10px; border-radius: 9999px; background: rgba(255,237,213,0.85); color: #92400e; font-size: 11px; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; letter-spacing: 0.02em; margin-bottom: 5px; border: 1px solid rgba(253,186,116,0.4);">
+                  Zona Peneliti Cilik 🔬
+                </div>
+                <h2
+                  style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Quicksand', sans-serif; font-size: 22px; font-weight: 700; color: #0f172a; line-height: 1.2; margin: 0;">
+                  Masuk Portal Siswa</h2>
+              </div>
+            </div>
+
+            <!-- Form Login Siswa -->
+            <form id="formLoginSiswa" novalidate
+              onsubmit="event.preventDefault(); App.handleLoginSiswa(event); return false;"
+              style="display: flex; flex-direction: column; gap: 16px;">
+              <!-- Field: Nama Lengkap -->
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="student-name"
+                  style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; font-size: 12px; font-weight: 600; color: #374151; display: flex; align-items: center; gap: 6px; letter-spacing: 0.01em;">
+                  <span class="material-symbols-outlined" style="font-size: 15px; color: #0284c7;">person</span>
+                  Nama Lengkap
+                </label>
+                <input type="text" id="student-name" placeholder="Contoh: Akbar Faizi Azfar" autocomplete="name"
+                  style="width: 100%; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.6); border-radius: 12px; padding: 11px 16px; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; color: #1e293b; outline: none; transition: border-color 0.2s, background 0.2s; box-shadow: none;"
+                  onfocus="this.style.borderColor='#0284c7';this.style.background='rgba(255,255,255,0.95)'"
+                  onblur="this.style.borderColor='rgba(255,255,255,0.6)';this.style.background='rgba(255,255,255,0.7)'" />
+              </div>
+
+              <!-- Field: Kata Sandi -->
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="student-password"
+                  style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; font-size: 12px; font-weight: 600; color: #374151; display: flex; align-items: center; gap: 6px; letter-spacing: 0.01em;">
+                  <span class="material-symbols-outlined" style="font-size: 15px; color: #0284c7;">lock</span>
+                  <span>Kata Sandi</span>
+                </label>
+                <div style="position: relative; display: flex; align-items: center;">
+                  <input type="password" id="student-password" placeholder="Masukkan kata sandi"
+                    autocomplete="current-password"
+                    style="width: 100%; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.6); border-radius: 12px; padding: 11px 44px 11px 16px; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; color: #1e293b; outline: none; transition: border-color 0.2s, background 0.2s; box-shadow: none;"
+                    onfocus="this.style.borderColor='#0284c7';this.style.background='rgba(255,255,255,0.95)'"
+                    onblur="this.style.borderColor='rgba(255,255,255,0.6)';this.style.background='rgba(255,255,255,0.7)'" />
+                  <button type="button" onclick="App.togglePassword('student-password', this)"
+                    style="position: absolute; right: 12px; background: none; border: none; cursor: pointer; color: #94a3b8; padding: 4px; display: flex; align-items: center;"
+                    title="Lihat kata sandi">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 6px;">
+                <!-- Primary CTA: Solid blue Apple style -->
+                <button type="button" id="btnSubmitLoginSiswa"
+                  onclick="event.preventDefault(); App.handleLoginSiswa(event);" style="
+                  width: 100%; padding: 13px 20px;
+                  background: #0284c7 !important;
+                  color: #ffffff !important;
+                  border: none !important; border-radius: 12px !important;
+                  box-shadow: none !important;
+                  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+                  font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+                  cursor: pointer;
+                  display: flex; align-items: center; justify-content: center; gap: 8px;
+                  transition: opacity 0.15s ease, transform 0.15s ease;
+                " onmouseenter="this.style.opacity='0.92'" onmouseleave="this.style.opacity='1'"
+                  onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">rocket_launch</span>
+                  <span>Masuk ke Portal Siswa</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </div><!-- end grid -->
+
+      <!-- Watermark Hak Cipta (HANYA di Halaman Login) -->
+      <div style="margin-top: 24px; text-align: center; display: flex; justify-content: center;">
+        <p id="loginWatermark" class="login-watermark" style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Quicksand', sans-serif; font-size: 12px; color: #64748b; opacity: 0.6; letter-spacing: 0.02em; margin: 0; user-select: none;">
+          Created by Maela Rahma Devita
+        </p>
+      </div>
+
+    </div><!-- end max-w container -->
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- LAYAR 2: DASHBOARD PORTAL GURU                                            -->
+  <!-- ========================================================================= -->
+  <main id="screen-guru" class="screen-view max-w-6xl mx-auto px-4 py-6">
+
+    <!-- Top Header Guru: Profil, Kode Kelas & Tombol Keluar -->
+    <div class="glass-panel-teal p-6 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <!-- Foto Profil Guru (Interactive) -->
+        <div class="relative group cursor-pointer" onclick="App.openTeacherProfileModal()"
+          title="Klik untuk mengganti foto atau avatar profil">
+          <div
+            class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white p-1 shadow-md overflow-hidden border-2 border-teal-300"
+            id="guruHeaderAvatar">
+            <!-- Avatar SVG Injected -->
+          </div>
+          <button
+            class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-teal-600 text-white flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-[14px]">photo_camera</span>
+          </button>
+        </div>
+
+        <!-- Nama & Identitas Guru -->
+        <div>
+          <div class="flex items-center gap-2 mb-0.5">
+            <span
+              class="px-2.5 py-0.5 rounded-full bg-teal-100 text-teal-800 font-heading text-[11px] font-extrabold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[13px]">verified</span>
+              Pendidik Terverifikasi
+            </span>
+          </div>
+          <h2 class="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight" id="guruHeaderName">
+            Maela Rahma Devita
+          </h2>
+          <p class="text-xs text-slate-600 font-semibold hidden" id="guruHeaderNip"></p>
+          <p class="text-xs text-slate-500" id="guruHeaderSchool">SDIT Insan Robbani • Kurikulum Merdeka</p>
+        </div>
+      </div>
+
+      <!-- Kode Kelas Unik & Tombol Aksi Kanan -->
+      <div class="flex flex-wrap items-center gap-2.5 md:self-center">
+        <!-- Badge Kode Kelas Unik -->
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-teal-200 shadow-xs">
+          <span class="material-symbols-outlined text-teal-600 text-[18px]">qr_code</span>
+          <div class="text-xs">
+            <span class="text-slate-500 font-medium">KODE KELAS: </span>
+            <strong class="text-teal-800 font-extrabold tracking-wide" id="classCodeTxt">IPA6-NAPAS-24</strong>
+          </div>
+          <button onclick="App.copyClassCode()"
+            class="w-6 h-6 rounded-full bg-teal-100 hover:bg-teal-200 text-teal-800 flex items-center justify-center transition-colors"
+            title="Salin Kode Kelas">
+            <span class="material-symbols-outlined text-[14px]">content_copy</span>
+          </button>
+        </div>
+
+        <!-- Tombol Mode Simulasi Siswa -->
+        <button onclick="App.startTeacherStudentSimulation()"
+          class="px-3.5 py-2 rounded-full bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-600 hover:to-teal-600 text-white text-xs font-bold shadow-sm hover:shadow-md flex items-center gap-1.5 transition-all"
+          title="Uji coba langsung ke Dashboard Siswa & Arena Kuis">
+          <span class="material-symbols-outlined text-[16px]">visibility</span>
+          <span>Mode Simulasi Siswa</span>
+        </button>
+
+        <!-- Tombol Edit Profil Guru -->
+        <button onclick="App.openTeacherProfileModal()"
+          class="px-3.5 py-2 rounded-full bg-white hover:bg-slate-50 text-teal-800 text-xs font-bold border border-teal-200 shadow-xs flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px]">edit</span>
+          <span>Edit Profil</span>
+        </button>
+
+        <!-- Tombol Keluar / Ganti Portal -->
+        <button onclick="App.logout()"
+          class="px-3.5 py-2 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 shadow-xs flex items-center gap-1.5 transition-all">
+          <span class="material-symbols-outlined text-[16px]">logout</span>
+          <span>Keluar</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Ringkasan Metrik Kelas Cepat (Sinkronisasi Dinamis Real-Time) -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
+      <div class="glass-panel p-4 flex flex-col items-center justify-center text-center">
+        <span class="text-2xl font-extrabold text-teal-700 font-heading">27 Siswa</span>
+        <span class="text-xs text-slate-500 font-semibold mt-0.5">Siswa Terdaftar Aktif</span>
+      </div>
+      <div class="glass-panel p-4 flex flex-col items-center justify-center text-center">
+        <span id="guruMetricAvgScore" class="text-2xl font-extrabold text-sky-600 font-heading">0.0</span>
+        <span class="text-xs text-slate-500 font-semibold mt-0.5">Rerata Skor Kelas</span>
+      </div>
+      <div class="glass-panel p-4 flex flex-col items-center justify-center text-center">
+        <span id="guruMetricCompletion" class="text-2xl font-extrabold text-emerald-600 font-heading">0%</span>
+        <span class="text-xs text-slate-500 font-semibold mt-0.5">Ketuntasan Materi</span>
+      </div>
+      <div class="glass-panel p-4 flex flex-col items-center justify-center text-center">
+        <span id="guruMetricSimTested" class="text-2xl font-extrabold text-amber-500 font-heading">0%</span>
+        <span class="text-xs text-slate-500 font-semibold mt-0.5">Simulasi 3D Diuji</span>
+      </div>
+    </div>
+
+    <!-- Empat Tombol Tab Navigasi Menu Guru -->
+    <nav class="flex flex-wrap items-center gap-2 p-1.5 rounded-3xl bg-slate-200/60 backdrop-blur-md mb-6"
+      aria-label="Navigasi Menu Guru">
+      <button id="tabBtn-perkembangan" onclick="App.switchGuruTab('perkembangan')"
+        class="flex-1 min-w-[200px] py-2.5 px-4 rounded-full font-heading text-xs font-bold flex items-center justify-center gap-2 transition-all bg-white text-teal-700 shadow-md">
+        <span class="material-symbols-outlined text-[18px]">analytics</span>
+        <span>Perkembangan & Analisis Siswa</span>
+      </button>
+      <button id="tabBtn-peringkat" onclick="App.switchGuruTab('peringkat')"
+        class="flex-1 min-w-[170px] py-2.5 px-4 rounded-full font-heading text-xs font-bold flex items-center justify-center gap-2 transition-all text-slate-600 hover:bg-white/40">
+        <span class="material-symbols-outlined text-[18px]">military_tech</span>
+        <span>Peringkat & Poin Siswa</span>
+      </button>
+      <button id="tabBtn-refleksi" onclick="App.switchGuruTab('refleksi')"
+        class="flex-1 min-w-[150px] py-2.5 px-4 rounded-full font-heading text-xs font-bold flex items-center justify-center gap-2 transition-all text-slate-600 hover:bg-white/40">
+        <span class="material-symbols-outlined text-[18px]">edit_note</span>
+        <span>Refleksi Guru</span>
+      </button>
+      <button id="tabBtn-manajemen" onclick="App.switchGuruTab('manajemen')"
+        class="flex-1 min-w-[170px] py-2.5 px-4 rounded-full font-heading text-xs font-bold flex items-center justify-center gap-2 transition-all text-slate-600 hover:bg-white/40">
+        <span class="material-symbols-outlined text-[18px]">file_download</span>
+        <span>Unduh & Kelola Kelas</span>
+      </button>
+    </nav>
+
+    <!-- ================= PANEL 1: PERKEMBANGAN & ANALISIS KESULITAN SISWA ================= -->
+    <section id="panelGuru-perkembangan" class="block space-y-6">
+
+      <!-- Sub-panel Analisis Diagnostik Kesulitan (Heatmap & Tingkat Kesalahan) -->
+      <div class="glass-panel p-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-rose-500 text-[24px]">troubleshoot</span>
+              <h3 class="font-heading text-lg font-extrabold text-slate-900">
+                Peta Diagnostik Kesulitan Belajar Siswa (Heatmap Analisis)
+              </h3>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">
+              Menunjukkan topik materi atau kuis mana yang paling sering salah dijawab siswa sehingga guru tahu bagian
+              mana yang perlu dijelaskan ulang di kelas.
+            </p>
+          </div>
+          <span
+            class="px-3 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">priority_high</span>
+            2 Topik Perlu Remedial
+          </span>
+        </div>
+
+        <!-- Dynamic Diagnostic Heatmap List -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="diagnosticHeatmapContainer">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+
+      <!-- Sub-panel Daftar Siswa & Progress Belajar -->
+      <div class="glass-panel p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="font-heading text-base font-extrabold text-slate-900">
+              Daftar Ketuntasan Materi & Simulasi Per Siswa
+            </h3>
+            <p class="text-xs text-slate-500">Pantau ketuntasan 6 modul organ dan simulasi 3D pernapasan</p>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead
+              class="bg-slate-50 text-slate-600 text-xs font-bold uppercase tracking-wider border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4 text-center w-12">No</th>
+                <th class="py-3 px-4">Nama Siswa</th>
+                <th class="py-3 px-4 text-center">Level Terbuka</th>
+                <th class="py-3 px-4">Progress Belajar</th>
+                <th class="py-3 px-4 text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody id="studentsProgressTableBody">
+              <!-- Injected via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PANEL 2: PERINGKAT & POIN SISWA ================= -->
+    <section id="panelGuru-peringkat" class="hidden space-y-6">
+      <div class="glass-panel p-6">
+        <div
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-amber-500 text-[26px]">leaderboard</span>
+              <h3 class="font-heading text-lg font-extrabold text-slate-900">
+                Papan Klasemen Siswa (Poin Tertinggi ke Terendah)
+              </h3>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Data terupdate otomatis secara real-time saat siswa bermain di
+              kelas</p>
+          </div>
+
+          <!-- Search Filter -->
+          <div class="relative w-full sm:w-64">
+            <input type="text" id="searchLeaderboard" placeholder="Cari nama siswa..."
+              class="w-full bg-slate-50 focus:bg-white text-slate-800 rounded-full py-2 pl-9 pr-4 text-xs border border-slate-200 outline-none focus:ring-2 focus:ring-teal-200 transition-all" />
+            <span
+              class="material-symbols-outlined text-slate-400 text-[18px] absolute left-2.5 top-2 pointer-events-none">search</span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead
+              class="bg-slate-50 text-slate-600 text-xs font-bold uppercase tracking-wider border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4 text-center w-16">Rank</th>
+                <th class="py-3 px-4">Nama Siswa</th>
+                <th class="py-3 px-4 text-center">Level Tertinggi</th>
+                <th class="py-3 px-4 text-center">Sisa Nyawa</th>
+                <th class="py-3 px-4 text-right">Total Skor</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardTableBody">
+              <!-- Injected via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PANEL 3: REFLEKSI GURU ================= -->
+    <section id="panelGuru-refleksi" class="hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Kolom Kiri: Form Input Refleksi (3 Aspek) -->
+        <div class="lg:col-span-5 glass-panel p-6">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="material-symbols-outlined text-teal-600 text-[24px]">history_edu</span>
+            <h3 class="font-heading text-base font-extrabold text-slate-900">
+              Formulir Evaluasi Diri Guru
+            </h3>
+          </div>
+          <p class="text-xs text-slate-500 mb-5">
+            Dokumentasikan catatan pedagogik ke dalam 3 aspek berikut untuk penyempurnaan pembelajaran.
+          </p>
+
+          <form id="formTeacherReflection" class="flex flex-col gap-4">
+            <!-- Aspek A: Evaluasi Pemahaman Siswa -->
+            <div class="flex flex-col gap-1">
+              <label for="evalPemahaman"
+                class="font-heading text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                <span
+                  class="w-5 h-5 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center text-[10px]">A</span>
+                <span>Evaluasi Pemahaman Siswa</span>
+              </label>
+              <span class="text-[11px] text-slate-500">Bagian materi/konsep mana yang perlu ditingkatkan lagi?</span>
+              <textarea id="evalPemahaman" rows="2" required
+                placeholder="Contoh: Siswa masih keliru membedakan volume udara saat istirahat vs lari..."
+                class="w-full bg-slate-50 focus:bg-white text-slate-800 placeholder:text-slate-400 rounded-xl p-3 text-xs border border-slate-200 outline-none focus:ring-2 focus:ring-teal-200 transition-all"></textarea>
+            </div>
+
+            <!-- Aspek B: Evaluasi Penyampaian Guru -->
+            <div class="flex flex-col gap-1">
+              <label for="evalPenyampaian"
+                class="font-heading text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                <span
+                  class="w-5 h-5 rounded-full bg-sky-100 text-sky-800 flex items-center justify-center text-[10px]">B</span>
+                <span>Evaluasi Penyampaian Guru</span>
+              </label>
+              <span class="text-[11px] text-slate-500">Apa yang perlu diperbaiki dari cara penyampaian di kelas?</span>
+              <textarea id="evalPenyampaian" rows="2" required
+                placeholder="Contoh: Perlu memperbanyak peragaan alat botol balon untuk menjelaskan diafragma..."
+                class="w-full bg-slate-50 focus:bg-white text-slate-800 placeholder:text-slate-400 rounded-xl p-3 text-xs border border-slate-200 outline-none focus:ring-2 focus:ring-sky-200 transition-all"></textarea>
+            </div>
+
+            <!-- Aspek C: Evaluasi Media Pembelajaran -->
+            <div class="flex flex-col gap-1">
+              <label for="evalMedia" class="font-heading text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                <span
+                  class="w-5 h-5 rounded-full bg-orange-100 text-orange-800 flex items-center justify-center text-[10px]">C</span>
+                <span>Evaluasi Media Pembelajaran</span>
+              </label>
+              <span class="text-[11px] text-slate-500">Bagian mana dari aplikasi/simulasi ini yang perlu
+                disempurnakan?</span>
+              <textarea id="evalMedia" rows="2" required
+                placeholder="Contoh: Tambahkan tombol reset sudut pandang kamera pada simulator 3D..."
+                class="w-full bg-slate-50 focus:bg-white text-slate-800 placeholder:text-slate-400 rounded-xl p-3 text-xs border border-slate-200 outline-none focus:ring-2 focus:ring-orange-200 transition-all"></textarea>
+            </div>
+
+            <button type="submit" class="btn-squishy-secondary w-full py-3 px-4 text-xs font-bold mt-2">
+              <span class="material-symbols-outlined text-[18px]">save</span>
+              <span>Simpan Catatan Refleksi</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Kolom Kanan: Riwayat Catatan Refleksi Tersimpan -->
+        <div class="lg:col-span-7 glass-panel p-6 flex flex-col">
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
+            <div>
+              <h3 class="font-heading text-base font-extrabold text-slate-900">
+                Riwayat Jurnal Refleksi Pembelajaran
+              </h3>
+              <p class="text-xs text-slate-500">Tersimpan di LocalStorage browser perangkat ini</p>
+            </div>
+            <button onclick="App.exportReflectionsText()"
+              class="text-xs font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">download</span>
+              <span>Ekspor Jurnal</span>
+            </button>
+          </div>
+
+          <!-- Dynamic List of Reflections -->
+          <div class="space-y-4 max-h-[500px] overflow-y-auto pr-1" id="reflectionHistoryContainer">
+            <!-- Injected via JavaScript -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= PANEL 4: UNDUH LAPORAN & MANAJEMEN KELAS ================= -->
+    <section id="panelGuru-manajemen" class="hidden space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Kartu 1: Unduh Laporan Resmi -->
+        <div class="glass-panel p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-teal-600 text-[26px]">print</span>
+              <h3 class="font-heading text-base font-extrabold text-slate-900">
+                Ekspor & Cetak Laporan Nilai Resmi
+              </h3>
+            </div>
+            <p class="text-xs text-slate-500 mb-6">
+              Unduh rekapitulasi nilai evaluasi IPA Kelas 6 untuk kelengkapan administrasi rapor Kurikulum Merdeka atau
+              simpan ke file Excel (.csv).
+            </p>
+
+            <div class="space-y-3">
+              <button onclick="App.exportStudentsCSV()"
+                class="w-full p-4 rounded-2xl bg-teal-50 hover:bg-teal-100 border border-teal-200 text-teal-900 flex items-center justify-between transition-all group">
+                <div class="flex items-center gap-3">
+                  <span class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center shadow-xs">
+                    <span class="material-symbols-outlined text-[20px]">table_chart</span>
+                  </span>
+                  <div class="text-left">
+                    <p class="font-heading font-extrabold text-xs">Unduh Rekap Nilai CSV</p>
+                    <p class="text-[11px] text-teal-700">Dapat dibuka di Microsoft Excel atau Google Sheets</p>
+                  </div>
+                </div>
+                <span
+                  class="material-symbols-outlined text-teal-600 group-hover:translate-x-1 transition-transform">download</span>
+              </button>
+
+              <button onclick="App.printClassReport()"
+                class="w-full p-4 rounded-2xl bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-900 flex items-center justify-between transition-all group">
+                <div class="flex items-center gap-3">
+                  <span class="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-xs">
+                    <span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+                  </span>
+                  <div class="text-left">
+                    <p class="font-heading font-extrabold text-xs">Cetak Rapor Nilai / PDF</p>
+                    <p class="text-[11px] text-sky-700">Layout rapi dengan kop laporan pembelajaran</p>
+                  </div>
+                </div>
+                <span
+                  class="material-symbols-outlined text-sky-600 group-hover:translate-x-1 transition-transform">print</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] text-teal-600">verified</span>
+            <span>Format sesuai pedoman asesmen Kurikulum Merdeka Fase C.</span>
+          </div>
+        </div>
+
+        <!-- Kartu 2: Manajemen Sesi & Multi-Sekolah -->
+        <div class="glass-panel p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-orange-500 text-[26px]">hub</span>
+              <h3 class="font-heading text-base font-extrabold text-slate-900">
+                Manajemen Sesi & Rombel Baru
+              </h3>
+            </div>
+            <p class="text-xs text-slate-500 mb-6">
+              Media ini dirancang fleksibel sehingga dapat digunakan oleh guru-guru lain di sekolah yang berbeda dengan
+              membuat kode sesi unik tersendiri.
+            </p>
+
+            <div class="space-y-3">
+              <button onclick="App.createNewSession()" class="btn-squishy-coral w-full py-3.5 px-4 text-xs font-bold">
+                <span class="material-symbols-outlined text-[18px]">add_circle</span>
+                <span>Buat Sesi Kelas Baru (Ganti Kode Kelas)</span>
+              </button>
+
+              <button onclick="App.resetClassDataPrompt()"
+                class="w-full py-3 px-4 rounded-full bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-700 text-xs font-bold border border-slate-200 transition-all flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[16px]">restart_alt</span>
+                <span>Reset Data Kelas & Catatan Refleksi</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="mt-6 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-800 flex items-start gap-2">
+            <span class="material-symbols-outlined text-amber-600 text-[18px] shrink-0 mt-0.5">info</span>
+            <span>Kode kelas unik dapat dibagikan kepada peserta didik saat pembelajaran dimulai.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- LAYAR 3: DASHBOARD UTAMA PORTAL SISWA                                     -->
+  <!-- ========================================================================= -->
+  <main id="screen-siswa" class="screen-view max-w-6xl mx-auto px-4 py-6">
+
+    <!-- Top Bar Siswa (Profil Interaktif, Poin, 3 Nyawa, & Ikon Trofi Juara) -->
+    <div class="glass-panel-blue p-5 mb-6 flex flex-wrap items-center justify-between gap-4">
+
+      <!-- Profil Siswa Interaktif -->
+      <div class="flex items-center gap-3.5">
+        <div class="relative group cursor-pointer" onclick="App.openStudentProfileModal()"
+          title="Klik untuk mengganti avatar peneliti atau unggah fotomu!">
+          <div
+            class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white p-1 shadow-md overflow-hidden border-2 border-sky-300"
+            id="siswaHeaderAvatar">
+            <!-- Student Avatar SVG Injected -->
+          </div>
+          <button
+            class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-sky-600 text-white flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-[13px]">photo_camera</span>
+          </button>
+        </div>
+
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h2 class="font-heading text-lg sm:text-xl font-extrabold text-slate-900" id="siswaHeaderName">
+              Akbar Faizi Azfar
+            </h2>
+            <span class="px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 text-[10px] font-extrabold">Kelas 6 SD</span>
+          </div>
+          <span class="text-xs text-slate-600 font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px] text-amber-500">stars</span>
+            Peneliti Cilik Paru Sehat
+          </span>
+        </div>
+      </div>
+
+      <!-- Indikator Poin, Nyawa (❤️❤️❤️), & Trofi Motivasi -->
+      <div class="flex items-center gap-3">
+
+        <!-- Poin Siswa Pill -->
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 border border-amber-200 shadow-xs">
+          <span class="material-symbols-outlined text-[18px] text-amber-500"
+            style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="font-heading text-xs font-extrabold text-slate-800" id="siswaHeaderPoints">0 Poin</span>
+        </div>
+
+        <!-- 3 Hati / Nyawa Siswa -->
+        <div class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/90 border border-rose-200 shadow-xs"
+          title="Sisa Nyawa Bermain Kuis">
+          <span class="text-xs font-bold text-slate-600 mr-1">Nyawa:</span>
+          <div class="flex items-center gap-0.5" id="siswaHeaderLives">
+            <!-- 3 Hearts Injected -->
+          </div>
+        </div>
+
+        <!-- Tombol Piala Kecil Berkilau (Top 10 Leaderboard Motivasi) -->
+        <button onclick="App.toggleLeaderboardModal()"
+          class="btn-squishy-gold p-2.5 rounded-2xl flex items-center justify-center shadow-md hover:scale-105 transition-transform"
+          title="Papan Juara Top 10 Kelas">
+          <span class="material-symbols-outlined text-[22px] text-amber-900"
+            style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+        </button>
+
+        <!-- Tombol Keluar Siswa -->
+        <button onclick="App.logout()"
+          class="w-9 h-9 rounded-full bg-white hover:bg-rose-50 text-slate-500 hover:text-rose-600 border border-slate-200 flex items-center justify-center transition-colors"
+          title="Keluar">
+          <span class="material-symbols-outlined text-[18px]">logout</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Banner Tujuan Pembelajaran Bab 2 IPA Kelas 6 -->
+    <div
+      class="glass-panel p-6 sm:p-7 mb-8 relative overflow-hidden bg-gradient-to-r from-white/90 via-sky-50/70 to-emerald-50/70 border border-white">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-2">
+            <span
+              class="px-3 py-1 rounded-full text-xs font-extrabold bg-gradient-to-r from-sky-500 to-teal-500 text-white shadow-xs">
+              🎯 TUJUAN PEMBELAJARAN BAB 2
+            </span>
+            <span class="text-xs text-slate-500 font-bold">Kurikulum Merdeka</span>
+          </div>
+
+          <!-- Teks Resmi Tujuan Pembelajaran -->
+          <p class="text-sm md:text-base font-semibold text-slate-800 leading-relaxed mb-4">
+            "Pada bab ini, kamu akan <strong class="text-sky-700">mengidentifikasi dan menjelaskan organ-organ sistem
+              pernapasan</strong> beserta proses yang terjadi di dalamnya. Selanjutnya, kamu juga akan <strong
+              class="text-emerald-700">menggabungkan informasi tersebut untuk menghasilkan aktivitas yang
+              tepat</strong>, guna menjaga kesehatan organ pernapasan."
+          </p>
+
+          <!-- 3 Micro Highlights -->
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">air</span> 6 Organ Utama
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-100 text-teal-800 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">swap_calls</span> Difusi O₂ & CO₂
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">favorite</span> Pola Hidup Bersih & Sehat
+            </span>
+          </div>
+        </div>
+
+        <!-- 3D Mascot Graphic -->
+        <div
+          class="w-24 h-24 sm:w-28 sm:h-28 shrink-0 mx-auto md:mx-0 p-2 rounded-3xl bg-white shadow-md border-2 border-sky-100 flex items-center justify-center">
+          <div class="w-full h-full anim-breathing">
+            <!-- Embedded Lung Mascot SVG -->
+            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <rect x="46" y="8" width="8" height="26" rx="4" fill="#F59E0B" />
+              <path d="M46 32 C36 32 20 40 18 58 C16 76 26 88 42 88 C47 88 48 78 48 64 C48 50 48 34 46 32 Z"
+                fill="#0284C7" />
+              <path d="M54 32 C64 32 80 40 82 58 C84 76 74 88 58 88 C53 88 52 78 52 64 C52 50 52 34 54 32 Z"
+                fill="#10B981" />
+              <circle cx="32" cy="56" r="3" fill="#0F172A" />
+              <circle cx="68" cy="56" r="3" fill="#0F172A" />
+              <circle cx="26" cy="62" r="3" fill="#FB7185" />
+              <circle cx="74" cy="62" r="3" fill="#FB7185" />
+              <path d="M30 63 Q33 67 36 63" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+              <path d="M64 63 Q67 67 70 63" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TIGA BUTTON MENU UTAMA SISWA (Desain Kartu Kaca Besar, Menyala, Bubbly & Terpisah Rapi) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+      <!-- BUTTON 1: JELAJAH MATERI (Ke Layar 4) -->
+      <div onclick="App.navigateTo('screen-materi')"
+        class="glass-panel p-6 sm:p-7 flex flex-col justify-between cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all bg-gradient-to-b from-white/95 to-sky-50/80 border-2 border-sky-200/80 shadow-md hover:shadow-xl">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-sky-100 text-sky-800">
+              Modul Interaktif
+            </span>
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-400 to-sky-600 text-white flex items-center justify-center shadow-md group-hover:rotate-6 transition-transform">
+              <span class="material-symbols-outlined text-[28px]">menu_book</span>
+            </div>
+          </div>
+
+          <h3
+            class="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 group-hover:text-sky-700 transition-colors mb-2">
+            Jelajah Materi
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Kenali 6 rahasia hebat organ pernapasan: Hidung, Faring, Laring, Trakea, Paru-paru & Alveolus!
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-sky-100 flex items-center justify-between">
+          <span class="text-xs font-bold text-sky-700 flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">check_circle</span>
+            6 Bab Terbuka
+          </span>
+          <span class="btn-squishy-primary py-2 px-4 text-xs font-bold">
+            <span>Ayo Buka</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- BUTTON 2: LABORATORIUM SIMULASI 3D (Ke Layar 5) -->
+      <div onclick="App.navigateTo('screen-lab')"
+        class="glass-panel p-6 sm:p-7 flex flex-col justify-between cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all bg-gradient-to-b from-white/95 to-emerald-50/80 border-2 border-emerald-200/80 shadow-md hover:shadow-xl">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-100 text-emerald-800">
+              Simulasi 3D Nyata
+            </span>
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-400 to-teal-600 text-white flex items-center justify-center shadow-md group-hover:rotate-6 transition-transform">
+              <span class="material-symbols-outlined text-[28px]">view_in_ar</span>
+            </div>
+          </div>
+
+          <h3
+            class="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors mb-2">
+            Laboratorium 3D
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Putar 360°, uji gerak otot diafragma saat tarik napas, dan amati mikroskopis kantung alveolus!
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-emerald-100 flex items-center justify-between">
+          <span class="text-xs font-bold text-emerald-700 flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">biotech</span>
+            Praktikum Virtual
+          </span>
+          <span class="btn-squishy-secondary py-2 px-4 text-xs font-bold">
+            <span>Mulai Uji</span>
+            <span class="material-symbols-outlined text-[16px]">science</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- BUTTON 3: ARENA TANTANGAN KUIS (Ke Layar 6) -->
+      <div onclick="App.navigateTo('screen-tantangan')"
+        class="glass-panel p-6 sm:p-7 flex flex-col justify-between cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all bg-gradient-to-b from-white/95 to-rose-50/80 border-2 border-rose-200/80 shadow-md hover:shadow-xl">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-rose-100 text-rose-800">
+              Kuis 10 Level Gamifikasi
+            </span>
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-orange-500 text-white flex items-center justify-center shadow-md group-hover:rotate-6 transition-transform">
+              <span class="material-symbols-outlined text-[28px]">sports_esports</span>
+            </div>
+          </div>
+
+          <h3
+            class="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 group-hover:text-rose-700 transition-colors mb-2">
+            Arena Tantangan
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Jawab pertanyaan berbatas waktu, pertahankan 3 nyawamu, dan rebut gelar Dokter Cilik Paru Emas!
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-rose-100 flex items-center justify-between">
+          <span class="text-xs font-bold text-rose-700 flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">military_tech</span>
+            Level 4 Terbuka
+          </span>
+          <span class="btn-squishy-coral py-2 px-4 text-xs font-bold">
+            <span>Mainkan</span>
+            <span class="material-symbols-outlined text-[16px]">sports_score</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Widget Fakta Seru Bernapas (Did You Know) -->
+    <div class="glass-panel p-5 flex items-center justify-between gap-4 bg-white/80">
+      <div class="flex items-center gap-3.5 min-w-0">
+        <div
+          class="w-11 h-11 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 shadow-xs">
+          <span class="material-symbols-outlined text-[24px]">lightbulb</span>
+        </div>
+        <div class="min-w-0">
+          <p class="font-heading text-xs font-extrabold text-amber-900 uppercase tracking-wide">
+            Tahukah Kamu? Fakta Seru Tubuh Kita 🫧
+          </p>
+          <p class="text-xs text-slate-700 font-medium leading-relaxed truncate sm:whitespace-normal" id="funFactText">
+            Dalam satu hari penuh, kamu bernapas sekitar 20.000 kali lho! Paru-parumu bekerja tanpa lelah menjaga tubuh
+            tetap berenergi.
+          </p>
+        </div>
+      </div>
+      <button onclick="App.showRandomFact()"
+        class="px-3 py-1.5 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-bold border border-amber-200 shrink-0 transition-colors flex items-center gap-1">
+        <span class="material-symbols-outlined text-[16px]">sync</span>
+        <span class="hidden sm:inline">Fakta Baru</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- LAYAR 4: CONTAINER WADAH JELAJAH MATERI (Siap untuk Tahap Berikutnya)       -->
+  <!-- ========================================================================= -->
+  <!-- ========================================================================= -->
+  <!-- LAYAR 4: JELAJAH MATERI (NESTED BUTTONS & PROGRES BELAJAR LENGKAP)          -->
+  <!-- ========================================================================= -->
+  <main id="screen-materi" class="screen-view max-w-6xl mx-auto px-4 py-6">
+
+    <!-- Top Action Bar: Kembali ke Dashboard Siswa -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+      <button onclick="App.navigateTo('screen-siswa')"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-heading text-xs font-extrabold shadow-sm border border-slate-200 transition-all active:scale-95">
+        <span class="material-symbols-outlined text-[18px] text-sky-600">arrow_back</span>
+        <span>Kembali ke Dashboard Siswa</span>
+      </button>
+
+      <!-- Quick Switch to Lab / Quiz -->
+      <div class="flex items-center gap-2">
+        <button onclick="App.navigateTo('screen-lab')"
+          class="px-3 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-heading text-xs font-bold border border-emerald-200 transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-emerald-600">biotech</span>
+          <span>Lab 3D</span>
+        </button>
+        <button onclick="App.navigateTo('screen-tantangan')"
+          class="px-3 py-1.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-800 font-heading text-xs font-bold border border-rose-200 transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-rose-600">sports_esports</span>
+          <span>Arena Kuis</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Header Banner Jelajah Materi -->
+    <div
+      class="glass-panel p-6 sm:p-7 mb-6 relative overflow-hidden bg-gradient-to-r from-sky-500/10 via-teal-500/10 to-amber-500/10 border-2 border-white">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
+        <div>
+          <div class="flex items-center gap-2 mb-1.5">
+            <span
+              class="px-3 py-0.5 rounded-full bg-sky-100 text-sky-800 font-heading text-[11px] font-extrabold uppercase tracking-wide">
+              Layar 4 • Modul Interaktif
+            </span>
+            <span class="text-xs text-slate-500 font-bold">IPA Kelas 6 SD • Kurikulum Merdeka</span>
+          </div>
+          <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+            Jelajah Materi: Sistem Pernapasan Manusia 🫁✨
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 max-w-2xl leading-relaxed">
+            Ketuk <strong>Button Kategori Utama</strong>, pilih <strong>Sub-Button Materi</strong> untuk membuka kartu
+            penjelasan animasi, dengarkan suara penjelasannya, dan tandai sudah paham untuk menaikkan progres belajarmu!
+          </p>
+        </div>
+
+        <div
+          class="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white shadow-md p-2 flex items-center justify-center shrink-0 border border-sky-100 animate-bounce">
+          <span class="text-4xl">📚</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kartu Progres Belajar Siswa (Sinkronisasi Otomatis ke Portal Guru) -->
+    <div class="glass-panel p-5 mb-6 bg-white/90 border border-teal-200 shadow-sm">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
+        <div class="flex items-center gap-2.5">
+          <span
+            class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center text-sm font-bold">
+            📈
+          </span>
+          <div>
+            <h4 class="font-heading text-xs sm:text-sm font-extrabold text-slate-900">
+              Progres Ketuntasan Belajar Materi Kamu
+            </h4>
+            <span class="text-[11px] text-slate-500 font-medium" id="materiProgressCount">
+              4 dari 25 Sub-topik Selesai
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 self-end sm:self-auto">
+          <span class="font-heading font-extrabold text-sm sm:text-base text-teal-800" id="materiProgressPercent">
+            16% Selesai
+          </span>
+          <span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">
+            Terhubung ke Guru ✅
+          </span>
+        </div>
+      </div>
+
+      <!-- Glowing Animated Progress Bar -->
+      <div class="w-full bg-slate-100 rounded-full h-3.5 p-0.5 overflow-hidden shadow-inner border border-slate-200">
+        <div id="materiProgressBar"
+          class="h-full rounded-full bg-gradient-to-r from-sky-400 via-teal-400 to-emerald-500 transition-all duration-700 shadow-sm"
+          style="width: 16%;"></div>
+      </div>
+      <p class="text-[11px] text-slate-500 mt-2 font-medium">
+        💡 <em>Tips:</em> Klik tombol <strong>"Tandai Sudah Paham (+50 Poin)"</strong> di setiap materi agar progresmu
+        bertambah dan tercatat di Portal Guru!
+      </p>
+    </div>
+
+    <!-- Quick Category Filter Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 mb-6" aria-label="Filter Kategori Materi">
+      <button onclick="App.filterMateri('all')" data-filter="all"
+        class="filter-pill-btn px-3.5 py-1.5 rounded-full bg-sky-600 text-white font-heading text-xs font-bold shadow-xs flex items-center gap-1 shrink-0">
+        <span class="material-symbols-outlined text-[16px]">apps</span>
+        <span>Semua 6 Kategori</span>
+      </button>
+      <button onclick="App.filterMateri('kat_fungsi')" data-filter="kat_fungsi"
+        class="filter-pill-btn px-3.5 py-1.5 rounded-full bg-white/80 hover:bg-white text-slate-700 font-heading text-xs font-bold border border-slate-200 shadow-xs flex items-center gap-1 shrink-0 transition-all">
+        <span>⭐ 1. Fungsi (2)</span>
+      </button>
+      <button onclick="App.filterMateri('kat_organ')" data-filter="kat_organ"
+        class="filter-pill-btn px-3.5 py-1.5 rounded-full bg-white/80 hover:bg-white text-slate-700 font-heading text-xs font-bold border border-slate-200 shadow-xs flex items-center gap-1 shrink-0 transition-all">
+        <span>🫁 2. Organ (9)</span>
+      </button>
+      <button onclick="App.filterMateri('kat_proses')" data-filter="kat_proses"
+        class="filter-pill-btn px-3.5 py-1.5 rounded-full bg-white/80 hover:bg-white text-slate-700 font-heading text-xs font-bold border border-slate-200 shadow-xs flex items-center gap-1 shrink-0 transition-all">
+        <span>🔄 3. Proses (4)</span>
+      </button>
+      <button onclick="App.filterMateri('kat_penyakit')" data-filter="kat_penyakit"
+        class="filter-pill-btn px-3.5 py-1.5 rounded-full bg-white/80 hover:bg-white text-slate-700 font-heading text-xs font-bold border border-slate-200 shadow-xs flex items-center gap-1 shrink-0 transition-all">
+        <span>🩺 4. Penyakit (6)</span>
+      </button>
+      <button onclick="App.filterMateri('kat_faktor')" data-filter="kat_faktor"
+        class="filter-pill-btn px-3.5 py-1.5 rounded-full bg-white/80 hover:bg-white text-slate-700 font-heading text-xs font-bold border border-slate-200 shadow-xs flex items-center gap-1 shrink-0 transition-all">
+        <span>⚖️ 5. Faktor (4)</span>
+      </button>
+      <button onclick="App.filterMateri('kat_rawat')" data-filter="kat_rawat"
+        class="filter-pill-btn px-3.5 py-1.5 rounded-full bg-white/80 hover:bg-white text-slate-700 font-heading text-xs font-bold border border-slate-200 shadow-xs flex items-center gap-1 shrink-0 transition-all">
+        <span>🌱 6. Rawat Paru (4)</span>
+      </button>
+    </div>
+
+    <!-- DUAL COLUMN LAYOUT: Kolom Kiri (Accordion 6 Kategori) & Kolom Kanan (Detail Card Interaktif) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- KOLOM KIRI: 6 BUTTON KATEGORI UTAMA DENGAN SUB-BUTTONS DI DALAMNYA -->
+      <div class="lg:col-span-7 space-y-4" id="materiAccordionContainer">
+        <!-- Injected dynamically via App.renderMateriScreen() -->
+      </div>
+
+      <!-- KOLOM KANAN: KARTU KACA PENJELASAN INTERAKTIF & SUARA TTS (Sticky di Desktop) -->
+      <div class="lg:col-span-5 lg:sticky lg:top-20">
+        <div id="materiDetailCard"
+          class="glass-panel p-6 sm:p-7 border-2 border-sky-300/80 shadow-lg bg-gradient-to-b from-white/95 to-sky-50/80 transition-all">
+          <!-- Injected dynamically via App.renderMateriDetailCard() -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Next Step CTA Card -->
+    <div
+      class="glass-panel p-6 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-emerald-50 via-teal-50 to-sky-50 border border-teal-200">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">🏆</span>
+        <div>
+          <h4 class="font-heading font-extrabold text-sm sm:text-base text-slate-900">
+            Sudah Memahami Materi Hari Ini?
+          </h4>
+          <p class="text-xs text-slate-600">
+            Ayo uji pengetahuanmu secara nyata di Laboratorium 3D atau taklukkan Arena Kuis 10 Level!
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5 shrink-0 w-full sm:w-auto">
+        <button onclick="App.navigateTo('screen-lab')"
+          class="btn-squishy-secondary py-2.5 px-4 text-xs font-bold flex-1 sm:flex-initial">
+          <span class="material-symbols-outlined text-[16px]">view_in_ar</span>
+          <span>Ke Lab 3D</span>
+        </button>
+        <button onclick="App.navigateTo('screen-tantangan')"
+          class="btn-squishy-coral py-2.5 px-4 text-xs font-bold flex-1 sm:flex-initial">
+          <span class="material-symbols-outlined text-[16px]">sports_score</span>
+          <span>Main Kuis</span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- LAYAR 5: CONTAINER WADAH LABORATORIUM 3D (Siap untuk Tahap Berikutnya)     -->
+  <!-- ========================================================================= -->
+  <main id="screen-lab" class="screen-view max-w-6xl mx-auto px-4 py-6">
+
+    <!-- Top Action Bar: Kembali ke Dashboard Siswa & Pintasan Cepat -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+      <button onclick="App.navigateTo('screen-siswa')"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-heading text-xs font-extrabold shadow-sm border border-slate-200 transition-all active:scale-95">
+        <span class="material-symbols-outlined text-[18px] text-sky-600">arrow_back</span>
+        <span>Kembali ke Dashboard Siswa</span>
+      </button>
+
+      <!-- Quick Switch to Jelajah Materi / Arena Kuis -->
+      <div class="flex items-center gap-2">
+        <button onclick="App.navigateTo('screen-materi')"
+          class="px-3.5 py-1.5 rounded-full bg-sky-50 hover:bg-sky-100 text-sky-800 font-heading text-xs font-bold border border-sky-200 transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-sky-600">menu_book</span>
+          <span>Jelajah Materi</span>
+        </button>
+        <button onclick="App.navigateTo('screen-tantangan')"
+          class="px-3.5 py-1.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-800 font-heading text-xs font-bold border border-rose-200 transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-rose-600">sports_esports</span>
+          <span>Arena Kuis</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Header Banner Laboratorium 3D -->
+    <div
+      class="glass-panel p-6 sm:p-7 mb-6 relative overflow-hidden bg-gradient-to-r from-emerald-500/10 via-sky-500/10 to-teal-500/10 border-2 border-white">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
+        <div>
+          <div class="flex items-center gap-2 mb-1.5">
+            <span
+              class="px-3 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-heading text-[11px] font-extrabold uppercase tracking-wide">
+              Layar 5 • Praktikum Virtual 3D
+            </span>
+            <span class="text-xs text-slate-500 font-bold">IPA Kelas 6 SD • Kurikulum Merdeka</span>
+          </div>
+          <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+            Laboratorium 3D: Eksplorasi Organ & Dinamika Pernapasan 🔬✨
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 max-w-2xl leading-relaxed">
+            Putar model anatomi tubuh 360°, amati gerak kembang-kempis diafragma saat bernapas, dan bedah difusi molekul
+            gas oksigen serta karbon dioksida di kantung alveoli!
+          </p>
+        </div>
+
+        <div
+          class="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white shadow-md p-2 flex items-center justify-center shrink-0 border border-emerald-100 anim-breathing">
+          <span class="text-4xl">🫁</span>
+        </div>
+      </div>
+
+      <!-- TIGA TAB MODE SIMULASI INTERAKTIF (Kaca Glow Ala BabyBus) -->
+      <div
+        class="mt-6 p-1.5 rounded-2xl bg-white/80 backdrop-blur-md border border-white flex flex-col sm:flex-row items-center gap-2 shadow-xs">
+        <button id="tabLab-organ3d" onclick="Simulasi3D.switchMode('organ3d')"
+          class="flex-1 w-full py-3 px-4 rounded-2xl font-heading text-xs font-bold text-center transition-all bg-sky-600 text-white shadow-md scale-102 flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">view_in_ar</span>
+          <span>1. Eksplorasi & Bedah Organ 3D</span>
+        </button>
+        <button id="tabLab-pernapasan" onclick="Simulasi3D.switchMode('pernapasan')"
+          class="flex-1 w-full py-3 px-4 rounded-2xl font-heading text-xs font-bold text-center transition-all bg-white/70 text-slate-700 hover:bg-white shadow-xs flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">air</span>
+          <span>2. Mekanisme Tarik & Embus Napas</span>
+        </button>
+        <button id="tabLab-alveoli" onclick="Simulasi3D.switchMode('alveoli')"
+          class="flex-1 w-full py-3 px-4 rounded-2xl font-heading text-xs font-bold text-center transition-all bg-white/70 text-slate-700 hover:bg-white shadow-xs flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">bubble_chart</span>
+          <span>3. Mikro Difusi Gas Alveoli</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MODE 1: EKSPLORASI & BEDAH ORGAN 3D (MASTER-DETAIL ENSIKLOPEDIA MEDIS)    -->
+    <!-- ========================================================================= -->
+    <section id="sectionLab-organ3d" class="block space-y-4">
+
+      <!-- 1. MENU NAVIGASI HORIZONTAL (PILL CAPSULES DENGAN SCROLL HALUS) -->
+      <div class="p-2 sm:p-2.5 rounded-2xl bg-white/90 backdrop-blur-md border border-white shadow-xs">
+        <div class="flex items-center justify-between mb-2 px-2">
+          <span class="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[15px] text-sky-600">menu_book</span>
+            <span>Ensiklopedia Organ Pernapasan (Pilih Organ untuk Fokus):</span>
+          </span>
+          <span class="text-[10px] text-sky-700 font-bold bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
+            Fokus Master-Detail HD
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin" id="masterOrganPills">
+          <button onclick="Simulasi3D.selectMasterOrgan('overview')" data-organ-pill="overview"
+            class="organ-nav-pill active px-4 py-2 rounded-full bg-sky-600 text-white border border-sky-600 text-xs font-extrabold shadow-sm flex items-center gap-1.5 shrink-0">
+            <span>🌟 Tampilan Utuh (Overview)</span>
+          </button>
+          <button onclick="Simulasi3D.selectMasterOrgan('hidung')" data-organ-pill="hidung"
+            class="organ-nav-pill px-4 py-2 rounded-full bg-white text-slate-700 border border-slate-200 text-xs font-extrabold shadow-2xs flex items-center gap-1.5 shrink-0">
+            <span>👃 1. Hidung</span>
+          </button>
+          <button onclick="Simulasi3D.selectMasterOrgan('faring')" data-organ-pill="faring"
+            class="organ-nav-pill px-4 py-2 rounded-full bg-white text-slate-700 border border-slate-200 text-xs font-extrabold shadow-2xs flex items-center gap-1.5 shrink-0">
+            <span>👅 2. Faring</span>
+          </button>
+          <button onclick="Simulasi3D.selectMasterOrgan('laring')" data-organ-pill="laring"
+            class="organ-nav-pill px-4 py-2 rounded-full bg-white text-slate-700 border border-slate-200 text-xs font-extrabold shadow-2xs flex items-center gap-1.5 shrink-0">
+            <span>🗣️ 3. Laring</span>
+          </button>
+          <button onclick="Simulasi3D.selectMasterOrgan('trakea')" data-organ-pill="trakea"
+            class="organ-nav-pill px-4 py-2 rounded-full bg-white text-slate-700 border border-slate-200 text-xs font-extrabold shadow-2xs flex items-center gap-1.5 shrink-0">
+            <span>🫧 4. Trakea</span>
+          </button>
+          <button onclick="Simulasi3D.selectMasterOrgan('bronkus')" data-organ-pill="bronkus"
+            class="organ-nav-pill px-4 py-2 rounded-full bg-white text-slate-700 border border-slate-200 text-xs font-extrabold shadow-2xs flex items-center gap-1.5 shrink-0">
+            <span>🌿 5. Bronkus</span>
+          </button>
+          <button onclick="Simulasi3D.selectMasterOrgan('bronkiolus')" data-organ-pill="bronkiolus"
+            class="organ-nav-pill px-4 py-2 rounded-full bg-white text-slate-700 border border-slate-200 text-xs font-extrabold shadow-2xs flex items-center gap-1.5 shrink-0">
+            <span>🌱 6. Bronkiolus</span>
+          </button>
+          <button onclick="Simulasi3D.selectMasterOrgan('alveolus')" data-organ-pill="alveolus"
+            class="organ-nav-pill px-4 py-2 rounded-full bg-white text-slate-700 border border-slate-200 text-xs font-extrabold shadow-2xs flex items-center gap-1.5 shrink-0">
+            <span>🍇 7. Alveolus</span>
+          </button>
+          <button onclick="Simulasi3D.selectMasterOrgan('paru')" data-organ-pill="paru"
+            class="organ-nav-pill px-4 py-2 rounded-full bg-white text-slate-700 border border-slate-200 text-xs font-extrabold shadow-2xs flex items-center gap-1.5 shrink-0">
+            <span>🫁 8. Paru-Paru</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. AREA TAMPILAN ORGAN MASTER-DETAIL (DUA KOLOM BERSIH & RESPONSIF) -->
+      <div
+        class="w-full rounded-3xl bg-gradient-to-b from-sky-100/70 via-white/95 to-teal-50/70 p-4 sm:p-6 shadow-xl border-2 border-white relative overflow-hidden">
+
+        <!-- Ambient radial lights -->
+        <div class="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-sky-300/25 blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-teal-300/25 blur-3xl pointer-events-none">
+        </div>
+
+        <div class="master-organ-grid relative z-10">
+
+          <!-- KOLOM KIRI (50%): WADAH VIDEO SEAMLESS (EDGE-TO-EDGE) -->
+          <div class="organ-video-frame group relative" onclick="Simulasi3D.openVideoZoomModal(event)">
+
+            <!-- Floating Badge Organ di Pojok Kiri Atas -->
+            <div class="absolute top-4 left-4 z-20 pointer-events-none">
+              <span id="masterOrganBadge"
+                class="pointer-events-auto px-3.5 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-xs font-black flex items-center gap-1.5 shadow-lg border border-white/30">
+                <span class="material-symbols-outlined text-[16px] text-sky-400">health_and_safety</span>
+                <span>🌟 Tampilan Utuh (Overview)</span>
+              </span>
+            </div>
+
+            <!-- Floating Button: Mode X-Ray di Pojok Kanan Atas -->
+            <button id="btnXRayMode" type="button" onclick="Simulasi3D.toggleVideoXRay(event)"
+              class="absolute top-4 right-4 z-20 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white text-xs font-black shadow-lg border border-white/40 flex items-center gap-1.5 transition-all duration-300 hover:scale-105 active:scale-95 btn-xray-floating cursor-pointer"
+              title="Aktifkan Mode X-Ray Medis">
+              <span id="xrayBtnText">🔦 Mode X-Ray</span>
+            </button>
+
+            <!-- Elemen Video Utama (Edge-to-Edge Memenuhi Kontainer 500px) -->
+            <video id="organ-video" src="./assets/video_ikhtisar_napas.mp4" autoplay loop muted playsinline
+              disablePictureInPicture
+              onerror="if (!this.src.includes('video_utuh.mp4')) { this.src = './assets/video_utuh.mp4'; this.load(); this.play().catch(()=>{}); }"></video>
+
+            <!-- Floating Footer Bar (Petunjuk Zoom) -->
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-none">
+              <div
+                class="pointer-events-auto px-3.5 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold flex items-center gap-1.5 shadow-lg border border-white/20 transition-all group-hover:scale-105">
+                <span class="material-symbols-outlined text-[16px] text-sky-400">zoom_in</span>
+                <span>Klik video untuk perbesar tampilan</span>
+              </div>
+              <div
+                class="hidden sm:flex pointer-events-auto px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-md text-slate-700 text-[11px] font-bold items-center gap-1.5 shadow-sm border border-white/60">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Simulasi 3D Interaktif</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- KOLOM KANAN (50%): KARTU IKHTISAR ANATOMI LENGKAP -->
+          <div id="masterInfoCard"
+            class="master-info-card flex flex-col justify-between rounded-3xl bg-white/95 backdrop-blur-xl border-4 border-white/50 shadow-xl p-5 sm:p-6 transition-all duration-300">
+            <div class="flex flex-col h-full justify-between space-y-3">
+              <!-- Header Info -->
+              <div class="pb-3 border-b border-slate-100">
+                <div class="flex items-center justify-between gap-2 flex-wrap mb-2">
+                  <span
+                    class="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 text-[10px] font-black uppercase tracking-wider">
+                    Ikhtisar Anatomi Lengkap
+                  </span>
+                  <div class="flex items-center gap-1.5">
+                    <button onclick="Simulasi3D.openMicroscopicModal('overview')"
+                      class="btn-squishy-gold py-1.5 px-3 text-[11px] font-bold shrink-0 flex items-center gap-1 shadow-xs"
+                      title="Bedah Mikroskopis Detail">
+                      <span class="material-symbols-outlined text-[15px]">biotech</span>
+                      <span>Bedah Mikroskopis Detail</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="text-3xl p-1.5 rounded-2xl bg-sky-50 border border-sky-100 shadow-2xs">🌟</span>
+                  <div>
+                    <h3 class="font-heading text-lg font-black text-slate-900 leading-snug">Sistem Pernapasan Manusia
+                      (Ikhtisar Lengkap)</h3>
+                    <p class="text-[11px] font-semibold text-slate-500">Tampilan Utuh Sistem Pernapasan</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scrollable Body with Details -->
+              <div class="flex-1 space-y-3 pr-1 overflow-y-auto scrollbar-thin">
+                <!-- 1. FUNGSI UTAMA -->
+                <div class="p-3 rounded-2xl bg-sky-50/70 border border-sky-100/90 shadow-2xs">
+                  <h4 class="text-xs font-black text-sky-950 uppercase tracking-wide flex items-center gap-1.5 mb-2">
+                    <span class="material-symbols-outlined text-[15px] text-sky-600">psychology</span>
+                    <span>Fungsi Utama:</span>
+                  </h4>
+                  <ul class="space-y-1.5">
+                    <li class="flex items-start gap-2 text-xs text-slate-700 leading-relaxed font-medium">
+                      <span
+                        class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-black text-[10px]">✓</span>
+                      <span>Menghirup gas oksigen (O₂) segar dari udara atmosfer untuk bahan bakar energi sel.</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-700 leading-relaxed font-medium">
+                      <span
+                        class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-black text-[10px]">✓</span>
+                      <span>Mengeluarkan gas sisa karbon dioksida (CO₂) dan uap air hasil metabolisme.</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-700 leading-relaxed font-medium">
+                      <span
+                        class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-black text-[10px]">✓</span>
+                      <span>Menjaga keseimbangan asam-basa (pH) darah dan homeostasis seluruh tubuh.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- 2. LETAK ANATOMIS -->
+                <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-2xs">
+                  <h4
+                    class="text-xs font-black text-slate-800 uppercase tracking-wide flex items-center gap-1.5 mb-1.5">
+                    <span class="material-symbols-outlined text-[15px] text-indigo-600">pin_drop</span>
+                    <span>Letak Organ:</span>
+                  </h4>
+                  <p class="text-xs text-slate-700 font-medium leading-relaxed">
+                    Membentang dari kepala (rongga hidung & mulut), leher (faring & laring), rongga dada (trakea,
+                    bronkus, bronkiolus, alveoli, paru-paru), hingga perbatasan rongga perut (diafragma).
+                  </p>
+                </div>
+
+                <!-- 3. CIRI KHAS STRUKTUR -->
+                <div class="p-3 rounded-2xl bg-teal-50/70 border border-teal-100 shadow-2xs">
+                  <h4 class="text-xs font-black text-teal-950 uppercase tracking-wide flex items-center gap-1.5 mb-1.5">
+                    <span class="material-symbols-outlined text-[15px] text-teal-600">hub</span>
+                    <span>Ciri Khas Struktur:</span>
+                  </h4>
+                  <p class="text-xs text-slate-700 font-medium leading-relaxed">
+                    Terdiri dari Zona Konduksi (saluran pipa penghantar & penyaring udara) dan Zona Respirasi (alveoli
+                    paru-paru tempat difusi pertukaran gas).
+                  </p>
+                </div>
+
+                <!-- 4. TAHUKAH KAMU? -->
+                <div
+                  class="p-3 rounded-2xl bg-amber-50/90 border border-amber-200/90 text-amber-950 shadow-2xs flex items-start gap-2.5">
+                  <span class="text-xl shrink-0 mt-0.5">💡</span>
+                  <div>
+                    <strong class="font-heading text-xs font-black block text-amber-950 mb-0.5">Tahukah Kamu?</strong>
+                    <p class="text-[11px] font-medium leading-relaxed text-amber-900">
+                      Saat istirahat santai, manusia bernapas sekitar 12 - 20 kali setiap menit, menghirup dan
+                      menghembuskan lebih dari 10.000 liter udara segar setiap hari!
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer Card Status -->
+              <div
+                class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+                <span>Stitch Ensiklopedia Medis</span>
+                <span class="text-sky-600 font-bold">Model Anatomi Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODE 2: SIMULASI MEKANISME INSPIRASI & EKSPIRASI (TARIK & EMBUSKAN)        -->
+    <!-- ========================================================================= -->
+    <section id="sectionLab-pernapasan" class="hidden space-y-6">
+
+      <!-- Layout 2 Kolom: Kolom Kiri (Visualisasi Dada & Paru) & Kolom Kanan (Kontrol Interaktif) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+        <!-- KOLOM KIRI: KANVAS ANATOMI DINAMIS KEMBANG-KEMPIS -->
+        <div
+          class="lg:col-span-7 rounded-3xl bg-gradient-to-b from-sky-50 via-white to-teal-50 p-6 shadow-xl border-2 border-white flex flex-col justify-between relative overflow-hidden min-h-[440px]">
+
+          <!-- Ambient Glow -->
+          <div class="absolute -top-10 -left-10 w-48 h-48 rounded-full bg-sky-200/40 blur-3xl pointer-events-none">
+          </div>
+
+          <!-- Header Mini Kanvas -->
+          <div class="relative z-10 flex items-center justify-between">
+            <span
+              class="px-3 py-1 rounded-full bg-white/90 shadow-xs border border-slate-200 text-xs font-bold text-slate-700 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-sky-600">air</span>
+              <span>Dinamika Rongga Dada & Diafragma</span>
+            </span>
+
+            <!-- Panah Arah Aliran Udara Indicator -->
+            <div class="flex items-center gap-2">
+              <span id="arrowNapasIn"
+                class="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 text-[11px] font-extrabold flex items-center gap-1 transition-opacity">
+                <span>⬇️ Udara Masuk (O₂)</span>
+              </span>
+              <span id="arrowNapasOut"
+                class="px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 text-[11px] font-extrabold flex items-center gap-1 transition-opacity opacity-0">
+                <span>⬆️ Udara Keluar (CO₂)</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Panggung Visual Gambar 3D Paru-Paru Hiper-Realistis -->
+          <div class="relative z-10 w-full h-[320px] sm:h-[380px] flex items-center justify-center my-auto p-2">
+            <div id="lungStageContainer"
+              class="relative flex items-center justify-center w-full h-full bg-gradient-to-b from-sky-50/90 via-white/80 to-teal-50/90 backdrop-blur-xs rounded-2xl border border-sky-100 shadow-inner p-3 overflow-hidden">
+              <!-- Glow Ambient di belakang Paru-Paru 3D -->
+              <div id="lungAmbientGlow"
+                class="absolute w-60 h-60 rounded-full bg-sky-400/25 blur-3xl pointer-events-none transition-all duration-700">
+              </div>
+
+              <!-- Gambar Paru-Paru 3D Hiper-Realistis dengan Blending & Animasi CSS Murni -->
+              <img id="sim-paru" src="./assets/paruparu_polos.jpg"
+                onerror="if (!this.src.endsWith('.jpg.jpg')) this.src = './assets/paruparu_polos.jpg.jpg';"
+                alt="Model 3D Paru-Paru Hiper-Realistis"
+                class="max-h-[290px] sm:max-h-[350px] w-auto max-w-[95%] object-contain select-none"
+                style="transform: scale(1.08); filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.55)) drop-shadow(0 8px 25px rgba(2, 132, 199, 0.25)); transition: transform 0.8s ease-in-out, filter 0.8s ease-in-out; transform-origin: center center; mix-blend-mode: multiply;" />
+
+              <!-- Overlay Canvas Animasi Partikel Dinamis (Aliran O2 & CO2) -->
+              <canvas id="breathParticleCanvas"
+                class="absolute inset-0 w-full h-full pointer-events-none z-20"></canvas>
+            </div>
+          </div>
+
+          <!-- Keterangan Visual Bawah -->
+          <div class="relative z-10 flex items-center justify-between text-[11px] text-slate-500 font-semibold px-2">
+            <span>🛡️ Rongga Dada & Paru-Paru 3D</span>
+            <span>Kubah Otot Diafragma ⬇️</span>
+          </div>
+
+        </div>
+
+        <!-- KOLOM KANAN: KONTROL INTERAKTIF SISWA & LOGIKA BIOLOGIS LENGKAP -->
+        <div class="lg:col-span-5 flex flex-col justify-between gap-4">
+
+          <!-- Tombol Seleksi Aksi: Tarik Napas vs Embuskan Napas -->
+          <div class="flex items-center gap-3">
+            <button id="btnTarikNapas" onclick="Simulasi3D.setBreathMode('tarik')"
+              class="btn-squishy-primary py-3.5 px-4 text-xs font-bold flex-1 shadow-md">
+              <span class="material-symbols-outlined text-[18px]">south</span>
+              <span>Tarik Napas (Inspirasi)</span>
+            </button>
+            <button id="btnEmbusNapas" onclick="Simulasi3D.setBreathMode('embus')"
+              class="py-3.5 px-4 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-heading text-xs font-bold border border-slate-300 flex-1 transition-all">
+              <span class="material-symbols-outlined text-[18px]">north</span>
+              <span>Embuskan Napas (Ekspirasi)</span>
+            </button>
+          </div>
+
+          <!-- Tombol Bernapas Otomatis -->
+          <button id="btnAutoBreathLoop" onclick="Simulasi3D.toggleAutoBreathLoop()"
+            class="w-full py-2.5 px-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-heading text-xs font-extrabold border border-slate-200 shadow-xs flex items-center justify-center gap-2 transition-all">
+            <span class="material-symbols-outlined text-[18px] text-sky-600">autorenew</span>
+            <span>Bernapas Otomatis (Siklus Irama)</span>
+          </button>
+
+          <!-- Slider Kecepatan Aktivitas (Istirahat vs Olahraga) -->
+          <div class="glass-panel p-4 bg-white/90 border border-slate-200">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-xs font-bold text-slate-700 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-amber-500">speed</span>
+                Kecepatan Aktivitas:
+              </span>
+              <span id="activitySpeedLabel"
+                class="font-heading text-xs font-extrabold text-sky-800 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
+                15x / Menit
+              </span>
+            </div>
+            <input type="range" id="breathSpeedSlider" min="15" max="50" value="15"
+              class="w-full accent-sky-600 cursor-pointer"
+              oninput="Simulasi3D.setActivitySpeed(parseInt(this.value))" />
+            <p id="activitySpeedDesc" class="text-[11px] text-slate-500 mt-1.5 font-medium">
+              Kondisi Santai / Duduk Belajar (Pernapasan Normal)
+            </p>
+          </div>
+
+          <!-- Indikator Dinamis Perubahan Biologis (Wajib Akurat) -->
+          <div id="breathStatusBox"
+            class="p-4 rounded-2xl bg-sky-50 border border-sky-200 flex flex-col gap-2.5 transition-all">
+
+            <div>
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wide block">Kondisi Rongga Dada &
+                Paru-Paru:</span>
+              <div id="labelVolumeAction" class="font-heading text-xs font-extrabold text-emerald-700">
+                Membesar & Mengembang Penuh
+              </div>
+            </div>
+
+            <div>
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wide block">Otot Diafragma:</span>
+              <div id="labelDiafragmaAction" class="font-heading text-xs font-extrabold text-sky-700">
+                Berkontraksi & Mendatar (Turun)
+              </div>
+            </div>
+
+            <div>
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wide block">Otot Antartulang
+                Rusuk:</span>
+              <div id="labelRusukAction" class="font-heading text-xs font-extrabold text-sky-700">
+                Berkontraksi & Terangkat ke atas/luar ↗️
+              </div>
+            </div>
+
+            <!-- Kapasitas Udara Paru Meter -->
+            <div class="pt-2 border-t border-sky-200/60">
+              <div class="flex items-center justify-between text-[11px] font-bold text-slate-600 mb-1">
+                <span>Kapasitas Udara Terisi:</span>
+                <span class="text-sky-700">Maksimal</span>
+              </div>
+              <div class="w-full h-3 rounded-full bg-slate-200/70 overflow-hidden p-0.5">
+                <div id="breathCapacityBar"
+                  class="h-full rounded-full bg-gradient-to-r from-sky-400 to-teal-400 transition-all duration-700"
+                  style="width: 90%;"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Kartu Penjelasan Sains Ringkas -->
+          <div
+            class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-start gap-2">
+            <span class="text-lg shrink-0">💡</span>
+            <p class="font-medium leading-relaxed">
+              <strong>Prinsip Tekanan Udara:</strong> Udara mengalir dari tempat bertekanan tinggi ke rendah. Saat dada
+              membesar, tekanan di paru menurun drastis sehingga udara luar tersedot masuk!
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- MODE 3: SIMULASI MIKRO PERTUKARAN GAS PADA ALVEOLI (DIFUSI O2 & CO2)       -->
+    <!-- ========================================================================= -->
+    <section id="sectionLab-alveoli" class="hidden space-y-6">
+
+      <!-- Top Title Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h3 class="font-heading text-xl font-extrabold text-slate-900">
+            Pertukaran Gas pada Alveoli (Difusi O₂ & CO₂)
+          </h3>
+          <p class="text-xs text-slate-600">
+            Amati bagaimana oksigen menembus dinding tipis alveolus menuju sel darah merah, dan gas karbon dioksida
+            dibuang ke luar!
+          </p>
+        </div>
+
+        <button id="btnPlayAlveoliSim" onclick="Simulasi3D.toggleAlveoliAutoSimulation()"
+          class="btn-squishy-secondary py-2 px-4 text-xs font-bold">
+          <span class="material-symbols-outlined text-[18px]">play_circle</span>
+          <span>Mulai Simulasi Difusi Gas</span>
+        </button>
+      </div>
+
+      <!-- AREA SIMULASI UTAMA: LENSA MIKROSKOP 3D OPTIK ALVEOLI -->
+      <div
+        class="relative w-full rounded-3xl microscope-stage p-4 sm:p-7 shadow-2xl border-2 border-indigo-500/40 text-white overflow-hidden min-h-[580px] flex flex-col justify-between items-center">
+
+        <!-- Ambient Background Glow & Vignette -->
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,41,59,0.6)_0%,rgba(2,6,23,0.95)_75%)] pointer-events-none">
+        </div>
+        <div
+          class="w-80 h-80 rounded-full bg-sky-500/10 blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+        </div>
+
+        <!-- TOP HUD: INDIKATOR MIKROSKOP OPTIK & KETERANGAN ZOOM -->
+        <div class="relative z-10 w-full flex flex-wrap items-center justify-between gap-3 px-2">
+          <!-- Callout Alveoli -->
+          <div
+            class="flex items-center gap-2.5 bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 shadow-lg">
+            <span class="text-xl">🍇</span>
+            <div class="flex flex-col">
+              <span class="text-[11px] font-bold text-pink-300">Gua Alveolus</span>
+              <span class="text-[9px] text-slate-300">Potongan Melintang 1000x HD</span>
+            </div>
+          </div>
+
+          <!-- Status Indikator Simulasi -->
+          <div id="alveoliSimStatusBadge"
+            class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-sky-400/30 text-sky-300 text-[11px] font-extrabold shadow-lg">
+            <span id="alveoliSimStatusPing" class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span id="alveoliSimStatusText">Lensa Siap • Klik Tombol untuk Mulai</span>
+          </div>
+
+          <!-- Indikator Gas Legend -->
+          <div
+            class="hidden sm:flex items-center gap-3 bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 text-[10px] font-bold">
+            <div class="flex items-center gap-1.5 text-cyan-300">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]"></span>
+              <span>O₂ (Oksigen)</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-fuchsia-300">
+              <span class="w-2.5 h-2.5 rounded-full bg-fuchsia-400 shadow-[0_0_8px_#e879f9]"></span>
+              <span>CO₂ (Karbon Dioksida)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LENSA MIKROSKOP BULAT 3D GLASSMORPHISM -->
+        <div class="relative my-4 flex items-center justify-center">
+
+          <!-- Outer Optical Tube Blur Frame (Efek blur luar lensa) -->
+          <div class="microscope-outer-blur"></div>
+
+          <!-- Circular Eyepiece Container -->
+          <div id="microscopeLensWrapper"
+            class="microscope-lens-wrapper w-[330px] h-[330px] sm:w-[420px] sm:h-[420px] md:w-[450px] md:h-[450px] relative bg-black select-none">
+
+            <!-- 1. LATAR BELAKANG GAMBAR: GUA ALVEOLUS 3D -->
+            <img id="imgGuaAlveolus" src="./assets/gua_alveolus.jpg"
+              onerror="if (!this.src.endsWith('.jpg.jpg')) this.src = './assets/gua_alveolus.jpg.jpg';"
+              alt="Mikro Anatomi Gua Alveolus 3D"
+              class="absolute inset-0 w-full h-full object-cover scale-105 pointer-events-none select-none transition-transform duration-700" />
+
+            <!-- 2. KANVAS DINAMIS: MOLEKUL 3D GLOSSY & DIFUSI SILANG REAL-TIME -->
+            <canvas id="alveoliDiffusionCanvas"
+              class="absolute inset-0 w-full h-full pointer-events-none z-24"></canvas>
+
+            <!-- 3. RETIKEL & CROSSHAIRS LENSA MIKROSKOP -->
+            <div class="microscope-reticle"></div>
+
+            <!-- 4. PANTULAN KACA LENSA OPTIK (GLASSMORPHISM GLARE) -->
+            <div class="microscope-glass-glare"></div>
+
+            <!-- 5. FLOATING LABELS & INTERACTIVE HOTSPOTS -->
+            <!-- Label Rongga Gua Alveolus (Atas/Tengah) -->
+            <div class="absolute top-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-md text-[10px] font-extrabold text-cyan-200 border border-cyan-400/40 shadow-md">
+                Rongga Gua Alveolus
+              </span>
+            </div>
+
+            <!-- Interactive Trigger O2 (Rongga Gua) -->
+            <div id="particleO2Alveoli" onclick="Simulasi3D.dragO2Molecule()"
+              title="Klik untuk memicu difusi molekul Oksigen ke sel darah!"
+              class="cursor-pointer absolute top-[36%] left-[24%] z-30 px-2.5 py-1 rounded-full bg-cyan-500/85 hover:bg-cyan-400 text-white font-heading text-[10px] font-extrabold shadow-[0_0_15px_rgba(6,182,212,0.8)] border border-cyan-200 flex items-center gap-1.5 transition-all hover:scale-110 active:scale-95">
+              <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+              <span>O₂ Difusi</span>
+            </div>
+
+            <!-- Interactive Trigger CO2 (Kapiler Darah Bawah) -->
+            <div id="particleCO2Alveoli" onclick="Simulasi3D.dragCO2Molecule()"
+              title="Klik untuk memicu pelepasan Karbon Dioksida dari darah!"
+              class="cursor-pointer absolute bottom-[20%] right-[22%] z-30 px-2.5 py-1 rounded-full bg-fuchsia-600/85 hover:bg-fuchsia-500 text-white font-heading text-[10px] font-extrabold shadow-[0_0_15px_rgba(217,70,239,0.8)] border border-fuchsia-200 flex items-center gap-1.5 transition-all hover:scale-110 active:scale-95">
+              <span>CO₂ Lepas</span>
+              <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+            </div>
+
+            <!-- Target RBC Indicator (Bottom capillary zone) -->
+            <div id="rbcOxygenatedTarget"
+              class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 px-3 py-0.5 rounded-full bg-rose-900/85 backdrop-blur-md text-[9px] font-bold text-rose-200 border border-rose-400/50 shadow-md transition-all duration-700 pointer-events-none">
+              Kapiler Darah & Sel Darah Merah
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 4 TOMBOL LANGKAH DEMI LANGKAH (STEP-BY-STEP) -->
+        <div
+          class="relative z-10 w-full flex flex-wrap items-center justify-center gap-2 pt-3 border-t border-white/10">
+          <button id="btnStepAlveoli-1" onclick="Simulasi3D.setAlveoliStep(1)"
+            class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-sky-600 text-white shadow-xs transition-all hover:brightness-110">
+            1. Udara Masuk
+          </button>
+          <button id="btnStepAlveoli-2" onclick="Simulasi3D.setAlveoliStep(2)"
+            class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+            2. Difusi O₂
+          </button>
+          <button id="btnStepAlveoli-3" onclick="Simulasi3D.setAlveoliStep(3)"
+            class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+            3. Difusi CO₂
+          </button>
+          <button id="btnStepAlveoli-4" onclick="Simulasi3D.setAlveoliStep(4)"
+            class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+            4. Udara Keluar
+          </button>
+          <button onclick="Simulasi3D.nextAlveoliStep()"
+            class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/20 hover:bg-white/30 text-white flex items-center gap-1 transition-all">
+            <span>Langkah Berikutnya</span>
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- KARTU PENJELASAN LANGKAH DIFUSI AKTIF -->
+      <div id="alveoliStepExplanation" class="glass-panel p-4 sm:p-5 bg-white/95 border-2 border-sky-300 shadow-md">
+        <!-- Injected via Simulasi3D.setAlveoliStep() -->
+      </div>
+
+      <!-- TOMBOL NAVIGASI BAWAH: AKU SUDAH PAHAM SIMULASI INI! -->
+      <div
+        class="glass-panel p-6 bg-gradient-to-r from-amber-50 via-teal-50 to-sky-50 border-2 border-amber-300/80 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <span class="text-3xl sm:text-4xl">🌟</span>
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-extrabold uppercase">
+              Ketuntasan Praktikum +100 Poin
+            </span>
+            <h4 class="font-heading text-base sm:text-lg font-extrabold text-slate-900 mt-0.5">
+              Siap Membuktikan Keahlianmu di Arena Kuis?
+            </h4>
+            <p class="text-xs text-slate-600">
+              Progres simulasi laboratoriummu telah otomatis disimpan ke Dashboard Guru!
+            </p>
+          </div>
+        </div>
+
+        <button onclick="Simulasi3D.finishLabAndGoToQuiz()"
+          class="btn-squishy-gold py-3 px-6 text-xs sm:text-sm font-extrabold shrink-0 shadow-md flex items-center gap-2">
+          <span>Aku Sudah Paham! Lanjut ke Arena Tantangan (Kuis 10 Level)</span>
+          <span class="material-symbols-outlined text-[18px]">sports_esports</span>
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- LAYAR 6: ARENA TANTANGAN (HUB MENU, SIMULATOR DARURAT & DETEKTIF ORGAN)    -->
+  <!-- ========================================================================= -->
+  <main id="screen-tantangan" class="screen-view max-w-6xl mx-auto px-4 py-6 transition-all duration-300">
+
+    <!-- ========================================================================= -->
+    <!-- 1. SUB-VIEW: MENU UTAMA / HUB ARENA TANTANGAN (LOBBY 2 MODE KUIS)         -->
+    <!-- ========================================================================= -->
+    <div id="tantanganMenuHub" class="transition-all duration-300">
+      
+      <!-- Hub Top Bar: Kembali ke Dashboard & Poin Siswa -->
+      <div class="glass-panel p-4 sm:p-5 mb-6 flex flex-wrap items-center justify-between gap-4 border-2 border-white/80 shadow-lg">
+        <button onclick="App.navigateTo('screen-siswa')"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 hover:bg-slate-100 text-slate-800 font-heading text-xs font-extrabold shadow-xs transition-all border border-slate-200/80 hover:scale-105 active:scale-95">
+          <span class="material-symbols-outlined text-[18px] text-sky-600">arrow_back</span>
+          <span>Kembali ke Dashboard Siswa</span>
+        </button>
+
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-white font-heading text-xs font-extrabold shadow-md">
+            <span class="material-symbols-outlined text-[18px]">stars</span>
+            <span id="hubUserPointsBadge">0 Poin</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hub Hero Header: Apple iOS Glassmorphism Title Banner -->
+      <div class="glass-panel p-6 sm:p-8 mb-8 text-center relative overflow-hidden bg-gradient-to-r from-white/95 via-sky-50/80 to-teal-50/80 border-2 border-white shadow-xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-sky-500/15 via-teal-500/15 to-rose-500/15 border border-sky-300/40 text-slate-800 text-xs font-black uppercase tracking-wider mb-3">
+          <span class="material-symbols-outlined text-[16px] text-sky-600">sports_esports</span>
+          <span>Arena Tantangan & Evaluasi Interaktif</span>
+        </div>
+        <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight mb-2">
+          Pilih Mode Misi Tantanganmu! 🫁✨
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto font-medium">
+          Uji penguasaan materi sistem pernapasan manusia melalui dua petualangan seru: simulasi penanganan darurat ruang kontrol medis atau investigasi tebak organ sebagai detektif cilik!
+        </p>
+      </div>
+
+      <!-- DUA KARTU BESAR GLASSMORPHISM PREMIUM (iOS STYLE) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8">
+
+        <!-- KARTU A: TANTANGAN 1: SIMULATOR DARURAT -->
+        <div onclick="TantanganHub.openSimulator()"
+          class="glass-panel p-7 sm:p-8 flex flex-col justify-between cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all bg-gradient-to-b from-white/95 to-rose-50/80 border-2 border-rose-200/80 hover:border-rose-400 shadow-xl hover:shadow-2xl relative overflow-hidden">
+          
+          <!-- Decorative Glow Backdrop -->
+          <div class="absolute -top-12 -right-12 w-40 h-40 bg-rose-400/15 rounded-full blur-2xl group-hover:scale-125 transition-transform pointer-events-none"></div>
+
+          <div>
+            <!-- Badge Kategori Mode -->
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-200 flex items-center gap-1.5 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                <span>Mode Darurat Medis</span>
+              </span>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-500 via-rose-600 to-orange-500 text-white flex items-center justify-center shadow-lg group-hover:rotate-6 group-hover:scale-110 transition-all">
+                <span class="material-symbols-outlined text-[32px]">emergency</span>
+              </div>
+            </div>
+
+            <!-- Judul & Subtitle -->
+            <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-900 group-hover:text-rose-900 transition-colors mb-2">
+              Tantangan 1: Simulator Darurat
+            </h2>
+            <p class="text-xs font-bold text-rose-600 mb-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">monitor_heart</span>
+              <span>Simulator Ruang Kontrol Medis 10 Level</span>
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-6">
+              Ambil kendali ruang kontrol pernapasan darurat! Analisis laporan klinis pasien, pantau saturasi O₂ yang terus menurun, dan tentukan respon aksi cepat sebelum waktu habis.
+            </p>
+
+            <!-- Fitur Utama -->
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-[10px]">✓</span>
+                <span>10 Kasus Darurat (Hidung, Asma, CO, CPR)</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-[10px]">✓</span>
+                <span>Waktu Berpikir & Bar Saturasi O₂ Pasien</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-[10px]">✓</span>
+                <span>Peta Progres 10 Level & Gelar Dokter Cilik</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="pt-4 border-t border-rose-100">
+            <button type="button" class="btn-squishy-coral w-full py-3.5 px-5 text-xs sm:text-sm font-extrabold shadow-md flex items-center justify-center gap-2 group-hover:shadow-lg transition-all">
+              <span>Masuk Simulator Darurat</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- KARTU B: TANTANGAN 2: DETEKTIF ORGAN -->
+        <div onclick="TantanganHub.openDetektif()"
+          class="glass-panel p-7 sm:p-8 flex flex-col justify-between cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all bg-gradient-to-b from-white/95 to-teal-50/80 border-2 border-teal-200/80 hover:border-teal-400 shadow-xl hover:shadow-2xl relative overflow-hidden">
+          
+          <!-- Decorative Glow Backdrop -->
+          <div class="absolute -top-12 -right-12 w-40 h-40 bg-teal-400/15 rounded-full blur-2xl group-hover:scale-125 transition-transform pointer-events-none"></div>
+
+          <div>
+            <!-- Badge Kategori Mode -->
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-teal-100 text-teal-800 border border-teal-200 flex items-center gap-1.5 shadow-2xs">
+                <span class="material-symbols-outlined text-[14px] text-teal-600">psychology</span>
+                <span>Kuis Tebak Gambar & Fungsi</span>
+              </span>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-teal-500 via-teal-600 to-sky-500 text-white flex items-center justify-center shadow-lg group-hover:rotate-6 group-hover:scale-110 transition-all">
+                <span class="material-symbols-outlined text-[32px]">search_check</span>
+              </div>
+            </div>
+
+            <!-- Judul & Subtitle -->
+            <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-900 group-hover:text-teal-900 transition-colors mb-2">
+              Tantangan 2: Detektif Organ
+            </h2>
+            <p class="text-xs font-bold text-teal-700 mb-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">biotech</span>
+              <span>10 Soal Analisis Visual & Tebak Fungsi Organ</span>
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-6">
+              Jadilah detektif anatomi cilik! Amati gambar mikroskopis dan animasi organ pernapasan, pecahkan teka-teki fungsinya, dan kumpulkan poin prestasi setinggi mungkin.
+            </p>
+
+            <!-- Fitur Utama -->
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-5 h-5 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-[10px]">✓</span>
+                <span>10 Soal Bergambar & Animasi Mikroskopis</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-5 h-5 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-[10px]">✓</span>
+                <span>Posisi 4 Pilihan Jawaban Diacak Dinamis</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span class="w-5 h-5 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-[10px]">✓</span>
+                <span>+50 Poin Jawaban Benar (Update ke Akun)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="pt-4 border-t border-teal-100">
+            <button type="button" class="btn-squishy-primary w-full py-3.5 px-5 text-xs sm:text-sm font-extrabold shadow-md flex items-center justify-center gap-2 group-hover:shadow-lg transition-all">
+              <span>Mulai Detektif Organ</span>
+              <span class="material-symbols-outlined text-[18px]">search</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 2. SUB-VIEW: TANTANGAN 1 (SIMULATOR RUANG KONTROL 10 LEVEL & PETA PROGRES) -->
+    <!-- ========================================================================= -->
+    <div id="tantanganSimulatorSubView" class="hidden transition-all duration-300">
+      <div id="controlRoomMainCard"
+        class="glass-panel p-5 sm:p-7 border-2 border-sky-300/80 shadow-2xl relative overflow-hidden transition-all duration-300">
+
+        <!-- Ambient Cockpit Alarm / Safe Glow Overlay -->
+        <div id="controlRoomGlow" class="absolute inset-0 pointer-events-none transition-all duration-500 opacity-0 z-0">
+        </div>
+
+        <!-- Navigation & Operator Action Header -->
+        <div
+          class="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-200/80 mb-5">
+          <div class="flex items-center gap-2">
+            <button onclick="TantanganHub.showMenu()"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-100 hover:bg-sky-200 text-sky-800 font-heading text-xs font-extrabold shadow-xs transition-all"
+              title="Kembali ke Menu Pilihan Kuis">
+              <span class="material-symbols-outlined text-[18px]">apps</span>
+              <span>Menu Kuis</span>
+            </button>
+            <button onclick="App.navigateTo('screen-siswa')"
+              class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-heading text-xs font-bold shadow-xs transition-all"
+              title="Kembali ke Dashboard Siswa">
+              <span class="material-symbols-outlined text-[18px]">home</span>
+              <span class="hidden sm:inline">Dashboard</span>
+            </button>
+          </div>
+
+        <div class="flex items-center gap-2.5">
+          <!-- Audio Toggle Button -->
+          <button id="btnTogglePuzzleSound" onclick="PuzzleOrgan.toggleSound()"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-100 hover:bg-sky-200 text-sky-800 font-heading text-xs font-bold transition-all shadow-xs"
+            title="Nyalakan / Matikan Efek Suara">
+            <span class="material-symbols-outlined text-[18px]">volume_up</span>
+            <span>Suara: Aktif</span>
+          </button>
+
+          <!-- Reset / Ulangi Button -->
+          <button onclick="PuzzleOrgan.resetPuzzle()"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-700 font-heading text-xs font-bold transition-all shadow-xs"
+            title="Atur ulang simulator kontrol">
+            <span class="material-symbols-outlined text-[18px]">restart_alt</span>
+            <span>Reset Simulator</span>
+          </button>
+
+          <!-- Student Health / Lives Counter (3 Nyawa) -->
+          <div id="puzzleLivesCounter"
+            class="relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-heading text-xs font-black shadow-xs"
+            title="Sisa Nyawa Operator">
+            <span class="text-[11px] font-bold text-rose-500">Nyawa:</span>
+            <span id="puzzleLivesHearts" class="tracking-wider text-sm leading-none">❤️❤️❤️</span>
+          </div>
+
+          <!-- Current Student Points Counter -->
+          <div id="puzzlePointsCounter"
+            class="relative inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-white font-heading text-xs font-extrabold shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">stars</span>
+            <span id="puzzlePointsValue">0 Poin</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- O2 LEVEL BAR (BAR KESEHATAN O₂ PASIEN) DI BAGIAN ATAS             -->
+      <!-- ================================================================= -->
+      <div id="o2HealthBarContainer"
+        class="relative z-10 mb-5 p-4 rounded-3xl bg-slate-900/90 text-white border-2 border-sky-400/50 shadow-xl backdrop-blur-md">
+        <div class="flex items-center justify-between gap-3 mb-2.5">
+          <div class="flex items-center gap-3">
+            <div id="o2StatusIconBox"
+              class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-sky-500 to-teal-400 text-white flex items-center justify-center shadow-lg transition-transform duration-300">
+              <span class="material-symbols-outlined text-[24px]">air</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-heading font-black text-sm sm:text-base tracking-wide text-sky-300">O₂ SATURATION
+                  MONITOR</span>
+                <span id="controlCaseBadge"
+                  class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-400 text-slate-900 shadow-xs">
+                  KASUS 1: LEVEL 1
+                </span>
+                <span id="puzzleComboMultiplierBadge"
+                  class="hidden px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-black uppercase shadow-xs animate-bounce">
+                  COMBO x2! 🔥
+                </span>
+              </div>
+              <p id="o2StatusSubtitle" class="text-[11px] text-slate-300 font-medium">Kadar oksigen pasien stabil.
+                Respon darurat dibutuhkan segera!</p>
+            </div>
+          </div>
+
+          <div class="text-right">
+            <div class="flex items-baseline justify-end gap-1">
+              <span id="o2ValueText"
+                class="font-mono font-black text-2xl sm:text-3xl text-emerald-400 tracking-tight leading-none">100%</span>
+              <span class="text-xs font-extrabold text-slate-400">O₂</span>
+            </div>
+            <span id="o2StatusBadge"
+              class="text-[10px] font-bold text-emerald-300 uppercase tracking-wider block mt-0.5">Sistem Normal</span>
+          </div>
+        </div>
+
+        <!-- O2 Progress Track -->
+        <div
+          class="w-full bg-slate-800/95 rounded-full h-4 sm:h-5 overflow-hidden p-0.5 shadow-inner border border-slate-700/60 relative">
+          <div id="o2ProgressBar"
+            class="h-full rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-sky-400 transition-all duration-300 ease-out o2-bar-shimmer shadow-md"
+            style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- FLOATING COMBO MULTIPLIER NOTIFICATION OVERLAY -->
+      <div id="puzzleComboContainer"
+        class="pointer-events-none fixed inset-0 z-50 flex items-center justify-center overflow-hidden"></div>
+
+      <!-- ================================================================= -->
+      <!-- MONITOR UTAMA: ANIMASI 3D SISTEM PERNAPASAN UTUH & TEKS ALARM     -->
+      <!-- ================================================================= -->
+      <div class="relative z-10 mb-6">
+        <div
+          class="hologram-viewport hologram-scanline relative flex flex-col items-center justify-center min-h-[340px] sm:min-h-[420px] max-h-[500px]">
+
+          <!-- Central 3D Video Loop Hologram -->
+          <video id="controlRoomVideo" src="./assets/video_ikhtisar_napas.mp4" autoplay loop muted playsinline
+            class="w-full h-full max-h-[440px] object-contain opacity-95 transition-all duration-500 pointer-events-none">
+          </video>
+
+          <!-- Top Hologram HUD Bar -->
+          <div
+            class="absolute top-3 left-4 right-4 flex items-center justify-between text-[11px] font-mono z-20 pointer-events-none">
+            <div
+              class="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-sky-400/40 text-sky-300 backdrop-blur-md shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+              <span id="hudTargetOrgan">SENSOR: SISTEM PERNAPASAN UTUH</span>
+            </div>
+            <div
+              class="px-3 py-1 rounded-full bg-slate-900/80 border border-emerald-400/40 text-emerald-300 backdrop-blur-md shadow-xs hidden sm:flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[14px]">ecg_heart</span>
+              <span id="hudVitalText">VITALS: 72 BPM / 16 RPM</span>
+            </div>
+          </div>
+
+          <!-- Bottom Hologram Alarm / Feedback Ticker -->
+          <div class="absolute bottom-4 left-4 right-4 z-20 pointer-events-none">
+            <div id="controlAlarmBanner"
+              class="p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border-2 border-amber-400 text-white shadow-2xl backdrop-blur-md flex items-center justify-between gap-3 transition-all duration-300">
+              <div class="flex items-center gap-3">
+                <span id="alarmIcon"
+                  class="material-symbols-outlined text-[28px] sm:text-[32px] text-amber-400 animate-bounce">warning</span>
+                <div>
+                  <div class="text-[10px] uppercase font-mono font-black text-amber-300 tracking-wider">STATUS ALARM
+                    RUANG KONTROL:</div>
+                  <h3 id="alarmCaseTitle"
+                    class="font-heading font-black text-sm sm:text-base lg:text-lg text-white leading-tight">
+                    "BAHAYA UDARA DINGIN & KERING MASUK!"
+                  </h3>
+                </div>
+              </div>
+              <span id="alarmCaseBadge"
+                class="hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-black uppercase tracking-wide bg-amber-400 text-slate-950">
+                Pilih Respon Aksi!
+              </span>
+            </div>
+          </div>
+
+          <!-- Canvas Confetti Overlay -->
+          <canvas id="puzzleConfettiCanvas" class="pointer-events-none absolute inset-0 w-full h-full z-30"></canvas>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- BAGIAN BAWAH: 4 TOMBOL AKSI DARURAT (FUTURISTIC GLASSMORPHISM)    -->
+      <!-- ================================================================= -->
+      <div class="relative z-10 mb-8">
+        <div class="flex items-center justify-between mb-3 px-1">
+          <h3 class="font-heading text-sm sm:text-base font-extrabold text-slate-900 flex items-center gap-2">
+            <span class="material-symbols-outlined text-rose-500 text-[22px]">touch_app</span>
+            <span>Konsol Aksi Darurat Operator (Pilih Tindakan Cepat):</span>
+          </h3>
+          <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200">
+            Respon Cepat ⚡
+          </span>
+        </div>
+
+        <div id="emergencyActionsGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 relative z-20">
+          <!-- 4 Tombol Aksi Darurat Futuristik (Posisi Diacak Dinamis via PuzzleOrgan.renderActionButtons()) -->
+          <button type="button" onclick="PuzzleOrgan.handleActionClick('c1-lendir')" id="btnAction-c1-lendir"
+            class="btn-emergency-action group">
+            <div
+              class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 group-hover:bg-sky-600 group-hover:text-white flex items-center justify-center transition-all shadow-xs shrink-0">
+              <span
+                class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">water_drop</span>
+            </div>
+            <div class="min-w-0 text-center">
+              <span
+                class="font-heading font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-sky-950 block leading-tight">[Aktifkan
+                Lendir]</span>
+              <span class="text-[10px] text-slate-500 font-semibold block mt-0.5">Respon Cepat</span>
+            </div>
+          </button>
+          <button type="button" onclick="PuzzleOrgan.handleActionClick('c1-batuk')" id="btnAction-c1-batuk"
+            class="btn-emergency-action group">
+            <div
+              class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 group-hover:bg-sky-600 group-hover:text-white flex items-center justify-center transition-all shadow-xs shrink-0">
+              <span
+                class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">record_voice_over</span>
+            </div>
+            <div class="min-w-0 text-center">
+              <span
+                class="font-heading font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-sky-950 block leading-tight">[Batuk
+                Keras!]</span>
+              <span class="text-[10px] text-slate-500 font-semibold block mt-0.5">Respon Cepat</span>
+            </div>
+          </button>
+          <button type="button" onclick="PuzzleOrgan.handleActionClick('c1-epiglotis')" id="btnAction-c1-epiglotis"
+            class="btn-emergency-action group">
+            <div
+              class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 group-hover:bg-sky-600 group-hover:text-white flex items-center justify-center transition-all shadow-xs shrink-0">
+              <span class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">lock</span>
+            </div>
+            <div class="min-w-0 text-center">
+              <span
+                class="font-heading font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-sky-950 block leading-tight">[Tutup
+                Epiglotis]</span>
+              <span class="text-[10px] text-slate-500 font-semibold block mt-0.5">Respon Cepat</span>
+            </div>
+          </button>
+          <button type="button" onclick="PuzzleOrgan.handleActionClick('c1-diafragma')" id="btnAction-c1-diafragma"
+            class="btn-emergency-action group">
+            <div
+              class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 group-hover:bg-sky-600 group-hover:text-white flex items-center justify-center transition-all shadow-xs shrink-0">
+              <span
+                class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">expand</span>
+            </div>
+            <div class="min-w-0 text-center">
+              <span
+                class="font-heading font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-sky-950 block leading-tight">[Pompa
+                Diafragma]</span>
+              <span class="text-[10px] text-slate-500 font-semibold block mt-0.5">Respon Cepat</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- PETA PROGRES 10 LEVEL KUIS PERNAPASAN (FREE NAVIGATION)          -->
+      <!-- ================================================================= -->
+      <div class="mt-8 pt-6 border-t border-slate-200/80 relative z-10">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-heading text-sm font-extrabold text-slate-900 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-amber-500 text-[18px]">map</span>
+            <span>Peta Kemajuan 10 Level Arena Kuis (Bebas Pilih Level 1-10)</span>
+          </h3>
+          <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200">
+            Navigasi Bebas 🚀
+          </span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3" id="quizLevelRoadmapGrid">
+          <div id="quizLevel1Card"
+            class="p-3.5 rounded-2xl bg-amber-50/95 border-2 border-amber-400 text-center shadow-md animate-pulse cursor-pointer transition-all hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(1)">
+            <span class="text-xs font-extrabold text-emerald-800 block">Level 1</span>
+            <span class="text-xs font-bold text-slate-700">Rongga Hidung</span>
+            <span id="quizLevel1Badge" class="text-[10px] text-amber-600 font-bold block mt-1">⚡ Misi Aktif</span>
+          </div>
+          <div id="quizLevel2Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-sky-200 text-center shadow-xs cursor-pointer transition-all hover:border-sky-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(2)">
+            <span class="text-xs font-extrabold text-emerald-800 block">Level 2</span>
+            <span class="text-xs font-bold text-slate-700">Faring & Laring</span>
+            <span id="quizLevel2Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+          <div id="quizLevel3Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-sky-200 text-center shadow-xs cursor-pointer transition-all hover:border-sky-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(3)">
+            <span class="text-xs font-extrabold text-emerald-800 block">Level 3</span>
+            <span class="text-xs font-bold text-slate-700">Paru & Alveolus</span>
+            <span id="quizLevel3Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+          <div id="quizLevel4Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-sky-200 text-center shadow-xs cursor-pointer transition-all hover:border-sky-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(4)">
+            <span class="text-xs font-extrabold text-emerald-800 block">Level 4</span>
+            <span class="text-xs font-bold text-slate-700">Lonjakan Oksigen</span>
+            <span id="quizLevel4Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+          <div id="quizLevel5Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-sky-200 text-center shadow-xs cursor-pointer transition-all hover:border-sky-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(5)">
+            <span class="text-xs font-extrabold text-emerald-800 block">Level 5</span>
+            <span class="text-xs font-bold text-slate-700">Infeksi & Lendir</span>
+            <span id="quizLevel5Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+          <div id="quizLevel6Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-sky-200 text-center shadow-xs cursor-pointer transition-all hover:border-sky-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(6)">
+            <span class="text-xs font-extrabold text-emerald-800 block">Level 6</span>
+            <span class="text-xs font-bold text-slate-700">Reaksi Asma</span>
+            <span id="quizLevel6Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+          <div id="quizLevel7Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-sky-200 text-center shadow-xs cursor-pointer transition-all hover:border-sky-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(7)">
+            <span class="text-xs font-extrabold text-slate-700 block">Level 7</span>
+            <span class="text-xs font-bold text-slate-700">Keracunan Gas CO</span>
+            <span id="quizLevel7Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+          <div id="quizLevel8Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-sky-200 text-center shadow-xs cursor-pointer transition-all hover:border-sky-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(8)">
+            <span class="text-xs font-extrabold text-slate-700 block">Level 8</span>
+            <span class="text-xs font-bold text-slate-700">Pneumonia Basah</span>
+            <span id="quizLevel8Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+          <div id="quizLevel9Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-sky-200 text-center shadow-xs cursor-pointer transition-all hover:border-sky-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(9)">
+            <span class="text-xs font-extrabold text-slate-700 block">Level 9</span>
+            <span class="text-xs font-bold text-slate-700">Bahaya Tar Rokok</span>
+            <span id="quizLevel9Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+          <div id="quizLevel10Card"
+            class="p-3.5 rounded-2xl bg-white/95 border-2 border-amber-300 text-center shadow-xs cursor-pointer transition-all hover:border-amber-400 hover:scale-[1.03]"
+            onclick="PuzzleOrgan.switchCase(10)">
+            <span class="text-xs font-extrabold text-amber-600 block">Level 10 🏆</span>
+            <span class="text-xs font-bold text-slate-800">Kode Merah CPR</span>
+            <span id="quizLevel10Badge" class="text-[10px] text-sky-600 font-bold block mt-1">🔓 Siap Dimainkan</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 3. SUB-VIEW: TANTANGAN 2: DETEKTIF ORGAN (KUIS TEBAK GAMBAR 10 SOAL)      -->
+    <!-- ========================================================================= -->
+    <div id="tantanganDetektifSubView" class="hidden transition-all duration-300">
+      <div class="glass-panel p-5 sm:p-7 border-2 border-teal-300/80 shadow-2xl relative overflow-hidden transition-all duration-300 bg-gradient-to-b from-white/95 to-teal-50/40">
+        
+        <!-- Top Navigation & Score Tracker Bar -->
+        <div class="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-200/80 mb-5">
+          <div class="flex items-center gap-2">
+            <button onclick="TantanganHub.showMenu()"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100 hover:bg-teal-200 text-teal-800 font-heading text-xs font-extrabold shadow-xs transition-all"
+              title="Kembali ke Menu Pilihan Kuis">
+              <span class="material-symbols-outlined text-[18px]">apps</span>
+              <span>Menu Kuis</span>
+            </button>
+            <button onclick="App.navigateTo('screen-siswa')"
+              class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-heading text-xs font-bold shadow-xs transition-all"
+              title="Kembali ke Dashboard Siswa">
+              <span class="material-symbols-outlined text-[18px]">home</span>
+              <span class="hidden sm:inline">Dashboard</span>
+            </button>
+          </div>
+
+          <!-- Right Stats: Question progress, Sound toggle, Points -->
+          <div class="flex items-center gap-2.5">
+            <!-- Question progress badge -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-100 border border-teal-300 text-teal-900 font-heading text-xs font-black shadow-xs">
+              <span class="material-symbols-outlined text-[16px] text-teal-700">search_check</span>
+              <span id="detektifQuestionBadge">Misi 1 / 10</span>
+            </div>
+
+            <!-- Audio Toggle Button -->
+            <button id="btnToggleDetektifSound" onclick="DetektifOrgan.toggleSound()"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-100 hover:bg-sky-200 text-sky-800 font-heading text-xs font-bold transition-all shadow-xs"
+              title="Nyalakan / Matikan Efek Suara">
+              <span class="material-symbols-outlined text-[18px]" id="detektifSoundIcon">volume_up</span>
+              <span id="detektifSoundText">Suara: Aktif</span>
+            </button>
+
+            <!-- Current Student Points Counter -->
+            <div id="detektifPointsCounter"
+              class="relative inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-white font-heading text-xs font-extrabold shadow-sm">
+              <span class="material-symbols-outlined text-[18px]">stars</span>
+              <span id="detektifPointsValue">0 Poin</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Track (10 Misi) -->
+        <div class="w-full bg-slate-200 rounded-full h-2.5 mb-6 overflow-hidden p-0.5 border border-slate-300/60 shadow-inner">
+          <div id="detektifProgressBar"
+            class="h-full rounded-full bg-gradient-to-r from-teal-500 via-sky-400 to-emerald-400 transition-all duration-300"
+            style="width: 10%;"></div>
+        </div>
+
+        <!-- 1. AREA GAMBAR / MEDIA DI ATAS -->
+        <div class="relative z-10 mb-6 flex justify-center">
+          <div class="w-full max-w-2xl rounded-3xl overflow-hidden border-2 border-teal-300 shadow-xl bg-slate-950 relative flex items-center justify-center">
+            <!-- Media Container (Gambar / Video Injected via JS) -->
+            <div id="detektifMediaContainer" class="w-full h-full flex items-center justify-center">
+              <!-- Injected via DetektifOrgan.renderQuestion() -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. PERTANYAAN DI TENGAH -->
+        <div class="relative z-10 mb-6 text-center max-w-3xl mx-auto px-2">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-100 text-teal-900 text-xs font-black uppercase tracking-wider mb-2.5 border border-teal-200">
+            <span class="material-symbols-outlined text-[16px] text-teal-700">psychology_alt</span>
+            <span id="detektifQuestionTag">Teka-Teki Anatomi</span>
+          </div>
+          <h2 id="detektifQuestionText" class="font-heading font-black text-base sm:text-xl lg:text-2xl text-slate-900 leading-snug">
+            Organ ini memiliki rambut pendek dan lendir. Apa fungsi utamanya?
+          </h2>
+        </div>
+
+        <!-- 3. 4 TOMBOL PILIHAN JAWABAN DI BAWAH (DIACAK DINAMIS VIA JS) -->
+        <div id="detektifAnswersGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-3xl mx-auto relative z-10 mb-6">
+          <!-- Injected dynamically and shuffled via DetektifOrgan.renderQuestion() -->
+        </div>
+
+        <!-- Feedback Banner Fun Fact & Points Notification -->
+        <div id="detektifFeedbackBanner" class="hidden max-w-3xl mx-auto p-4 rounded-2xl bg-emerald-50 border-2 border-emerald-300 text-emerald-900 text-xs sm:text-sm font-semibold flex items-center gap-3 transition-all mb-4 shadow-sm">
+          <!-- Injected via JS -->
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: HASIL AKHIR & LAPORAN PENYELIDIKAN DETEKTIF ORGAN (HOTS REVIEW)     -->
+  <!-- ========================================================================= -->
+  <div id="modalDetektifVictory" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div
+      class="glass-modal-content w-full max-w-2xl max-h-[92vh] overflow-y-auto p-5 sm:p-7 flex flex-col gap-4 text-center items-center shadow-2xl relative animate-snap-bounce bg-white/98 border-2 border-teal-300 rounded-3xl">
+      
+      <!-- Celebratory Ambient Glow -->
+      <div class="absolute -top-14 -left-14 w-44 h-44 rounded-full bg-teal-400/25 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-14 -right-14 w-44 h-44 rounded-full bg-amber-400/25 blur-3xl pointer-events-none"></div>
+
+      <!-- Trophy Icon -->
+      <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-amber-400 via-amber-500 to-orange-500 text-white flex items-center justify-center shadow-xl ring-4 ring-amber-200 mb-1 animate-bounce">
+        <span class="material-symbols-outlined text-[36px] sm:text-[44px]">military_tech</span>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <div>
+        <span class="px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-[11px] font-black uppercase tracking-wider mb-2 inline-block">
+          INVESTIGASI 10 MISI SELESAI!
+        </span>
+        <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-900 leading-tight">
+          HASIL PENYELIDIKAN DETEKTIF ORGAN 🔍🏆
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-2 font-medium">
+          Kerja luar biasa, <strong id="detektifVictoryStudentName" class="text-teal-700">Peneliti Cilik</strong>! Seluruh 10 studi kasus anatomi telah selesai kamu analisis.
+        </p>
+      </div>
+
+      <!-- Result Card -->
+      <div class="w-full p-4 rounded-2xl bg-gradient-to-r from-teal-50 via-sky-50 to-amber-50 border border-teal-200 shadow-inner flex items-center justify-around gap-2 text-center my-1">
+        <div>
+          <span class="text-[10px] font-extrabold uppercase text-slate-500 block">Poin Sesi Ini</span>
+          <span id="detektifVictoryEarnedScore" class="font-mono font-black text-lg sm:text-xl text-teal-700">+0 Poin</span>
+        </div>
+        <div class="w-px h-8 bg-slate-200"></div>
+        <div>
+          <span class="text-[10px] font-extrabold uppercase text-slate-500 block">Akurasi Jawaban</span>
+          <span id="detektifVictoryCorrectRatio" class="font-mono font-black text-lg sm:text-xl text-emerald-600">10 / 10 Soal</span>
+        </div>
+        <div class="w-px h-8 bg-slate-200"></div>
+        <div>
+          <span class="text-[10px] font-extrabold uppercase text-slate-500 block">Gelar Spesial</span>
+          <span id="detektifVictorySpecialTitle" class="font-heading font-black text-xs sm:text-sm text-amber-700 block">Detektif Anatomi Utama ⭐⭐⭐</span>
+        </div>
+      </div>
+
+      <!-- Tombol Akses Pembahasan: Lihat Laporan Penyelidikan -->
+      <button type="button" id="btnToggleDetektifLaporan" onclick="DetektifOrgan.toggleLaporanPenyelidikan()"
+        class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-teal-500 via-sky-600 to-teal-600 hover:from-teal-600 hover:to-sky-700 text-white font-heading font-black text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer group active:scale-[0.98]">
+        <span class="material-symbols-outlined text-[20px] group-hover:rotate-12 transition-transform">assignment</span>
+        <span id="btnToggleDetektifLaporanText">Lihat Laporan Penyelidikan (Pembahasan 10 Soal)</span>
+        <span id="btnToggleDetektifLaporanIcon" class="material-symbols-outlined text-[18px]">expand_more</span>
+      </button>
+
+      <!-- Area Daftar Pembahasan Laporan Penyelidikan (10 Soal) -->
+      <div id="detektifLaporanSection" class="w-full text-left transition-all duration-300">
+        <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-200">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-teal-600 text-[20px]">fact_check</span>
+            <h3 class="font-heading font-black text-xs sm:text-sm text-slate-800">
+              Evaluasi & Pembahasan Ilmiah Setiap Misi
+            </h3>
+          </div>
+          <span class="text-[11px] font-bold text-slate-500">10 Soal HOTS</span>
+        </div>
+
+        <!-- Kontainer Injeksi Kartu Pembahasan -->
+        <div id="detektifLaporanList" class="flex flex-col gap-3">
+          <!-- Injected dynamically by DetektifOrgan.renderLaporanPenyelidikan() -->
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-2.5 w-full mt-2 pt-3 border-t border-slate-200">
+        <button type="button" onclick="DetektifOrgan.restart()"
+          class="btn-squishy-secondary flex-1 py-3 px-4 text-xs font-bold flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">replay</span>
+          <span>Main Lagi (Acak Ulang)</span>
+        </button>
+        <button type="button" onclick="TantanganHub.showMenu(); DetektifOrgan.closeVictoryModal();"
+          class="btn-squishy-primary flex-1 py-3 px-4 text-xs font-bold shadow-md flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">grid_view</span>
+          <span>Pilih Mode Kuis Lain</span>
+        </button>
+        <button type="button" onclick="DetektifOrgan.closeVictoryModal(); App.navigateTo('screen-siswa');"
+          class="btn-squishy-gold flex-1 py-3 px-4 text-xs font-extrabold shadow-md flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">home</span>
+          <span>Dashboard Siswa</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: NOTIFIKASI POP-UP CANTIK (DIAGNOSIS TEPAT! +100 POIN)              -->
+  <!-- ========================================================================= -->
+  <div id="modalOrganReward" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div
+      class="glass-modal-content w-full max-w-md p-6 sm:p-7 flex flex-col gap-4 text-center items-center shadow-2xl relative overflow-hidden animate-snap-bounce">
+
+      <!-- Ambient celebratory glow -->
+      <div class="absolute -top-14 -left-14 w-44 h-44 rounded-full bg-emerald-400/25 blur-3xl pointer-events-none">
+      </div>
+      <div class="absolute -bottom-14 -right-14 w-44 h-44 rounded-full bg-cyan-400/25 blur-3xl pointer-events-none">
+      </div>
+
+      <!-- Score Addition Ribbon -->
+      <div id="rewardModalRibbon"
+        class="px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white font-heading text-xs font-extrabold shadow-sm flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-[18px]">verified_user</span>
+        <span id="rewardModalRibbonText">DIAGNOSIS TEPAT! +100 POIN BERHASIL DIDAPATKAN</span>
+      </div>
+
+      <!-- Title: "Diagnosis Akurat! Misi Kasus Berhasil!" -->
+      <div>
+        <h3 id="rewardModalTitle" class="font-heading text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+          Diagnosis Akurat! Misi Kasus Berhasil!
+        </h3>
+      </div>
+
+      <!-- Visual Hero: Tameng Menyala (Glowing Shield & Security Check) Murni CSS / SVG -->
+      <div class="relative flex items-center justify-center my-1">
+        <!-- Glowing Pulse Aura -->
+        <div class="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-cyan-400/25 blur-xl animate-pulse"></div>
+        <div class="absolute w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-emerald-400/35 blur-lg"></div>
+
+        <!-- Futuristic Glowing Shield Badge -->
+        <div
+          class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-gradient-to-tr from-cyan-400 via-teal-400 to-emerald-400 p-[3px] shadow-[0_0_35px_rgba(16,185,129,0.45)] flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
+          <div
+            class="w-full h-full rounded-[22px] bg-slate-900/95 backdrop-blur-md flex flex-col items-center justify-center border border-cyan-300/40 relative overflow-hidden">
+            <!-- Subtle scanline gradient overlay -->
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-cyan-400/15 via-transparent to-emerald-400/10 pointer-events-none">
+            </div>
+
+            <!-- SVG Glowing Shield with Security Check -->
+            <svg class="w-14 h-14 sm:w-16 sm:h-16 text-emerald-400 drop-shadow-[0_0_16px_rgba(52,211,153,0.95)]"
+              viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L4 5V11C4 16.55 7.42 21.74 12 23C16.58 21.74 20 16.55 20 11V5L12 2Z"
+                fill="url(#shieldGradCyanEmerald)" fill-opacity="0.25" stroke="url(#shieldStrokeCyanEmerald)"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M9 12L11 14L15 9.5" stroke="#34d399" stroke-width="2.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <defs>
+                <linearGradient id="shieldGradCyanEmerald" x1="4" y1="2" x2="20" y2="23" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#06b6d4" />
+                  <stop offset="1" stop-color="#10b981" />
+                </linearGradient>
+                <linearGradient id="shieldStrokeCyanEmerald" x1="4" y1="2" x2="20" y2="23"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#22d3ee" />
+                  <stop offset="1" stop-color="#34d399" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <!-- Status Pill -->
+            <span class="text-[9px] font-mono font-black text-cyan-300 uppercase tracking-widest mt-1">SISTEM
+              AMAN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Educational Description (Centered) -->
+      <p id="rewardModalDesc"
+        class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm text-center font-medium">
+        Deskripsi analisis medis respon darurat.
+      </p>
+
+      <!-- Analisis Dokter Spesialis Box (Centered Alignment & Balanced Padding) -->
+      <div
+        class="w-full p-4 sm:p-4.5 rounded-2xl bg-gradient-to-b from-cyan-50/90 via-sky-50/90 to-emerald-50/90 border border-teal-200/80 shadow-xs flex flex-col items-center justify-center text-center">
+        <div class="flex items-center justify-center gap-1.5 text-teal-800 font-extrabold text-xs mb-1.5">
+          <span class="material-symbols-outlined text-[18px] text-teal-600">medical_services</span>
+          <span>Analisis Dokter Spesialis:</span>
+        </div>
+        <p id="rewardModalFunFact" class="text-xs text-teal-950 font-medium leading-relaxed max-w-sm text-center">
+          Mekanisme biologis organ tubuh pasien.
+        </p>
+      </div>
+
+      <!-- Next Case Button -->
+      <button id="btnRewardNextCase" onclick="PuzzleOrgan.nextCase()"
+        class="btn-squishy-primary w-full py-3 px-6 text-xs sm:text-sm font-bold shadow-md flex items-center justify-center gap-2">
+        <span>Lanjut ke Kasus Berikutnya</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: WAKTU HABIS! (TIME ATTACK EXPIRED)                                 -->
+  <!-- ========================================================================= -->
+  <div id="modalTimeOut" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div
+      class="glass-modal-content w-full max-w-md p-6 sm:p-7 flex flex-col gap-4 text-center items-center shadow-2xl relative overflow-hidden animate-snap-bounce">
+
+      <!-- Ambient glow -->
+      <div class="absolute -top-12 -left-12 w-40 h-40 rounded-full bg-amber-400/20 blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -right-12 w-40 h-40 rounded-full bg-rose-400/20 blur-2xl pointer-events-none">
+      </div>
+
+      <!-- Icon Timer Badge -->
+      <div
+        class="w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-amber-400 to-rose-500 text-white flex items-center justify-center shadow-xl transform -rotate-3 shrink-0">
+        <span class="material-symbols-outlined text-[42px] sm:text-[46px]">timer_off</span>
+      </div>
+
+      <div
+        class="px-3.5 py-1 rounded-full bg-rose-100 text-rose-800 font-heading text-xs font-extrabold uppercase tracking-wide">
+        ⏱️ WAKTU TANTANGAN TELAH HABIS!
+      </div>
+
+      <h3 class="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+        Waktu Habis! Coba Lagi!
+      </h3>
+
+      <p class="text-xs text-slate-600 leading-relaxed max-w-sm">
+        Waktu 60 detikmu telah berakhir sebelum ketiga organ pernapasan terpasang lengkap. Semua organ terkunci. Yuk
+        coba lagi dan rakit lebih cepat!
+      </p>
+
+      <div class="p-3 w-full rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs text-left">
+        <div class="flex items-center gap-1.5 font-bold mb-0.5">
+          <span class="material-symbols-outlined text-[16px] text-amber-600">lightbulb</span>
+          <span>Tips Dokter Cilik:</span>
+        </div>
+        <p class="text-[11px] text-amber-800 leading-relaxed">
+          Ingat urutan cepat: <strong>1. Hidung</strong> di kepala atas &rarr; <strong>2. Trakea</strong> di leher
+          tengah &rarr; <strong>3. Paru-Paru</strong> di rongga dada!
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3 w-full mt-2">
+        <button onclick="PuzzleOrgan.closeTimeOutModal(); App.navigateTo('screen-siswa');"
+          class="btn-squishy-secondary flex-1 py-3 text-xs font-bold">
+          Dashboard Siswa
+        </button>
+        <button onclick="PuzzleOrgan.closeTimeOutModal(); PuzzleOrgan.resetPuzzle();"
+          class="btn-squishy-coral flex-1 py-3 text-xs font-bold shadow-md flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">replay</span>
+          <span>Coba Lagi 🔄</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: GAME OVER (KEHABISAN 3 NYAWA)                                      -->
+  <!-- ========================================================================= -->
+  <div id="modalGameOver" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div
+      class="glass-modal-content w-full max-w-md p-6 sm:p-7 flex flex-col gap-4 text-center items-center shadow-2xl relative overflow-hidden animate-snap-bounce">
+
+      <!-- Ambient glow -->
+      <div class="absolute -top-12 -left-12 w-40 h-40 rounded-full bg-rose-500/25 blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -right-12 w-40 h-40 rounded-full bg-orange-400/20 blur-2xl pointer-events-none">
+      </div>
+
+      <!-- Icon Heart Break Badge -->
+      <div
+        class="w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-rose-600 to-red-600 text-white flex items-center justify-center shadow-xl transform rotate-2 shrink-0">
+        <span class="material-symbols-outlined text-[42px] sm:text-[46px]">emergency</span>
+      </div>
+
+      <div
+        class="px-3.5 py-1 rounded-full bg-rose-100 text-rose-900 font-heading text-xs font-black uppercase tracking-wide">
+        🚨 O₂ DROP CRITICAL (0%)
+      </div>
+
+      <h3 class="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+        Sistem Gagal! Pasien Sesak Napas. Coba Ulangi.
+      </h3>
+
+      <p class="text-xs text-slate-600 leading-relaxed max-w-sm">
+        Kadar oksigen pasien telah habis (0% O₂) akibat respon darurat yang keliru atau terlambat. Atur ulang sistem
+        kontrol dan pilih tindakan penyelamatan yang tepat!
+      </p>
+
+      <div
+        class="flex items-center justify-center gap-3 w-full py-2.5 bg-rose-50/90 rounded-2xl border border-rose-200">
+        <span class="text-2xl opacity-40 grayscale">❤️</span>
+        <span class="text-2xl opacity-40 grayscale">❤️</span>
+        <span class="text-2xl opacity-40 grayscale">❤️</span>
+        <span class="text-xs font-bold text-rose-800 ml-1">0 Nyawa Tersisa</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3 w-full mt-2">
+        <button onclick="PuzzleOrgan.closeGameOverModal(); App.navigateTo('screen-siswa');"
+          class="btn-squishy-secondary flex-1 py-3 text-xs font-bold">
+          Dashboard Siswa
+        </button>
+        <button onclick="PuzzleOrgan.retryCurrentCase();"
+          class="btn-squishy-coral flex-1 py-3 text-xs font-bold shadow-md flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">replay</span>
+          <span>Ulangi Kasus Ini 🔄</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: GRAND VICTORY & LIVE LEADERBOARD (PAPAN PERINGKAT REAL-TIME)        -->
+  <!-- ========================================================================= -->
+  <div id="modalGrandVictory" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div
+      class="glass-modal-content w-full max-w-lg p-6 sm:p-7 flex flex-col gap-4 text-center items-center shadow-2xl relative overflow-hidden animate-snap-bounce max-h-[92vh] overflow-y-auto">
+
+      <!-- Celebratory ambient lights -->
+      <div class="absolute -top-16 -left-16 w-48 h-48 rounded-full bg-amber-400/25 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-sky-400/25 blur-3xl pointer-events-none">
+      </div>
+
+      <!-- Trophy Header Icon -->
+      <div
+        class="w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-amber-400 via-orange-500 to-rose-500 text-white flex items-center justify-center shadow-xl transform rotate-2 shrink-0">
+        <span class="material-symbols-outlined text-[42px] sm:text-[46px]">military_tech</span>
+      </div>
+
+      <div
+        class="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 font-heading text-xs font-extrabold uppercase tracking-wide">
+        🏆 GELAR TERTINGGI OPERATOR KONTROL
+      </div>
+
+      <h3 id="victoryModalTitle" class="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
+        SELAMAT! GELAR DOKTER CILIK DIRAIH! 🩺🏆
+      </h3>
+
+      <p id="victoryModalDesc" class="text-xs text-slate-600 leading-relaxed max-w-sm">
+        Luar biasa! Seluruh 10 kasus darurat ruang kontrol berhasil kamu atasi dengan analisa klinis yang presisi. Kamu
+        resmi menjadi Dokter Cilik Ahli Sistem Pernapasan!
+      </p>
+
+      <!-- Skor Akhir dengan Efek Angka Berjalan (Rolling Number Counter) -->
+      <div
+        class="w-full p-4 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-sky-50 border-2 border-amber-300/80 shadow-md flex flex-col items-center justify-center">
+        <span class="text-[11px] font-extrabold uppercase text-slate-500 tracking-wider mb-0.5">Total Skor
+          Perolehanmu:</span>
+        <div class="flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-amber-500 text-3xl sm:text-4xl">stars</span>
+          <span id="victoryScoreCounter"
+            class="font-mono font-black text-3xl sm:text-4xl text-slate-900 tracking-tight">0</span>
+          <span class="font-heading font-extrabold text-lg text-amber-600">Poin</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-2" id="victoryBadgesSummary">
+          <!-- Dynamic summary tags like Combo x3, Sisa Waktu 32s -->
+        </div>
+      </div>
+
+      <!-- Real-Time Classroom Leaderboard Table / 4 Rows -->
+      <div class="w-full text-left" id="victoryLeaderboardSection">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <span class="text-xs font-extrabold text-slate-700 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-amber-500">leaderboard</span>
+            <span>Papan Peringkat Kelas Terkini:</span>
+          </span>
+          <span
+            class="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+            Live Real-Time ⚡
+          </span>
+        </div>
+
+        <div class="space-y-1.5 w-full" id="victoryLiveLeaderboardList">
+          <!-- Injected via PuzzleOrgan.renderLiveLeaderboard() -->
+        </div>
+      </div>
+
+      <!-- Action Buttons (Requested: Lihat Papan Peringkat Kelas & Kembali ke Dashboard Utama) -->
+      <div id="victoryActionButtonsContainer"
+        class="flex items-center gap-3 w-full mt-1 pt-2 border-t border-slate-100">
+        <button id="btnVictoryLeaderboard" onclick="PuzzleOrgan.scrollToLeaderboard();"
+          class="btn-squishy-secondary flex-1 py-3 text-xs font-bold flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">leaderboard</span>
+          <span>Lihat Papan Peringkat Kelas 🏆</span>
+        </button>
+        <button id="btnVictoryDashboard" onclick="PuzzleOrgan.goToDashboard();"
+          class="btn-squishy-primary flex-1 py-3 text-xs font-bold shadow-md flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">home</span>
+          <span>Kembali ke Dashboard Utama 🏠</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: PERINGATAN LOGIN SALAH                                             -->
+  <!-- ========================================================================= -->
+  <div id="modalLoginAlert" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div
+      class="glass-modal-content w-full max-w-sm p-6 sm:p-7 flex flex-col items-center text-center gap-4 animate-snap-bounce relative overflow-hidden shadow-2xl">
+      <!-- Ambient glow -->
+      <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-rose-500/25 blur-2xl pointer-events-none"></div>
+
+      <!-- Icon Peringatan -->
+      <div
+        class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-rose-500 to-red-600 text-white flex items-center justify-center shadow-lg transform -rotate-3 shrink-0">
+        <span class="material-symbols-outlined text-[38px]">error</span>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-lg font-black text-slate-900 mb-1.5">
+          Peringatan Login
+        </h3>
+        <p id="modalLoginAlertMsg" class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
+          Nama dan Kata Sandi tidak boleh kosong untuk memulai petualangan!
+        </p>
+      </div>
+
+      <button type="button" onclick="App.closeLoginAlertModal()"
+        class="btn-squishy-coral w-full py-3 px-6 text-xs sm:text-sm font-bold shadow-md flex items-center justify-center gap-2">
+        <span>Coba Lagi 🔄</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: KUSTOMISASI PROFIL GURU (Unggah Foto Lokal ATAU 6 Avatar)          -->
+  <!-- ========================================================================= -->
+  <div id="modalTeacherProfile" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div class="glass-modal-content w-full max-w-lg p-6 sm:p-8 flex flex-col gap-4">
+
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-teal-600 text-[24px]">manage_accounts</span>
+          <h3 class="font-heading text-lg font-extrabold text-slate-900">Kustomisasi Profil Guru</h3>
+        </div>
+        <button onclick="App.closeTeacherProfileModal()"
+          class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <!-- Form Edit Profil Guru -->
+      <div class="space-y-3">
+        <div>
+          <label for="editGuruName" class="font-heading text-xs font-bold text-slate-700 block mb-1">Nama
+            Lengkap</label>
+          <input type="text" id="editGuruName" placeholder="Maela Rahma Devita"
+            class="w-full bg-slate-50 rounded-xl py-2 px-3 text-xs border border-slate-200 outline-none focus:ring-2 focus:ring-teal-200" />
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label for="editGuruNip" class="font-heading text-xs font-bold text-slate-700 block mb-1">Status / NIP
+              (Opsional)</label>
+            <input type="text" id="editGuruNip" placeholder="Mahasiswa Magang"
+              class="w-full bg-slate-50 rounded-xl py-2 px-3 text-xs border border-slate-200 outline-none focus:ring-2 focus:ring-teal-200" />
+          </div>
+          <div>
+            <label for="editGuruSchool" class="font-heading text-xs font-bold text-slate-700 block mb-1">Nama
+              Sekolah</label>
+            <input type="text" id="editGuruSchool" placeholder="SDIT Insan Robbani"
+              class="w-full bg-slate-50 rounded-xl py-2 px-3 text-xs border border-slate-200 outline-none focus:ring-2 focus:ring-teal-200" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Pilihan 1: Unggah Foto Diri Lokal -->
+      <div class="p-3.5 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-teal-700 text-[22px]">add_a_photo</span>
+          <div>
+            <p class="font-heading font-extrabold text-xs text-teal-900">Unggah Foto Asli Guru</p>
+            <p class="text-[11px] text-teal-700">Ambil foto profil dari penyimpanan perangkatmu</p>
+          </div>
+        </div>
+        <label class="btn-squishy-secondary py-1.5 px-3 text-xs font-bold cursor-pointer shrink-0">
+          <span>Pilih File</span>
+          <input type="file" accept="image/*" class="hidden" onchange="App.handleTeacherPhotoUpload(event)" />
+        </label>
+      </div>
+
+      <!-- Pilihan 2: 6 Ikon Avatar Guru 3D -->
+      <div>
+        <p class="font-heading text-xs font-bold text-slate-700 mb-2">Atau Pilih dari 6 Ikon Avatar Pendidik:</p>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="guruAvatarGrid">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+        <button type="button" onclick="App.closeTeacherProfileModal()"
+          class="px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors">
+          Batal
+        </button>
+        <button type="button" onclick="App.saveTeacherProfile()"
+          class="btn-squishy-secondary py-2 px-5 text-xs font-bold">
+          Simpan Profil
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: KUSTOMISASI PROFIL SISWA (Unggah Foto Lokal ATAU 5 Karakter Anak)  -->
+  <!-- ========================================================================= -->
+  <div id="modalStudentProfile" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div class="glass-modal-content w-full max-w-lg p-6 sm:p-8 flex flex-col gap-4">
+
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-sky-600 text-[24px]">face</span>
+          <h3 class="font-heading text-lg font-extrabold text-slate-900">Profil Peneliti Cilik</h3>
+        </div>
+        <button onclick="App.closeStudentProfileModal()"
+          class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <!-- Form Edit Nama Siswa -->
+      <div>
+        <label for="editSiswaName" class="font-heading text-xs font-bold text-slate-700 block mb-1">Nama Panggilan
+          Kamu</label>
+        <input type="text" id="editSiswaName"
+          class="w-full bg-slate-50 rounded-xl py-2 px-3 text-xs border border-slate-200 outline-none focus:ring-2 focus:ring-sky-200" />
+      </div>
+
+      <!-- Pilihan 1: Unggah Foto Diri Sendiri -->
+      <div class="p-3.5 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-sky-700 text-[22px]">add_a_photo</span>
+          <div>
+            <p class="font-heading font-extrabold text-xs text-sky-900">Unggah Foto Dirimu Sendiri</p>
+            <p class="text-[11px] text-sky-700">Pasang fotomu yang paling keren!</p>
+          </div>
+        </div>
+        <label class="btn-squishy-primary py-1.5 px-3 text-xs font-bold cursor-pointer shrink-0">
+          <span>Pilih Foto</span>
+          <input type="file" accept="image/*" class="hidden" onchange="App.handleStudentPhotoUpload(event)" />
+        </label>
+      </div>
+
+      <!-- Pilihan 2: 5 Karakter Anak (Dara, Banu, Ian, Aga, Mia) -->
+      <div>
+        <p class="font-heading text-xs font-bold text-slate-700 mb-2">Atau Pilih Sahabat Karakter Peneliti Cilik:</p>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" id="siswaAvatarGrid">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+        <button type="button" onclick="App.closeStudentProfileModal()"
+          class="px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors">
+          Batal
+        </button>
+        <button type="button" onclick="App.saveStudentProfile()"
+          class="btn-squishy-primary py-2 px-5 text-xs font-bold">
+          Simpan Profil
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: POP-UP JUARA KELAS TOP 10 LEADERBOARD (MOTIVASI SISWA)              -->
+  <!-- ========================================================================= -->
+  <div id="modalStudentLeaderboard"
+    class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div class="glass-modal-content w-full max-w-md p-6 flex flex-col gap-4">
+
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-amber-500 text-[24px]"
+            style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+          <h3 class="font-heading text-base font-extrabold text-slate-900">Juara Kelas: Top 10 Peringkat Poin</h3>
+        </div>
+        <button onclick="App.toggleLeaderboardModal()"
+          class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-500 -mt-2">
+        Selesaikan kuis di Arena Tantangan untuk menaikkan peringkatmu di papan juara kelas! 🚀
+      </p>
+
+      <!-- Top 10 List -->
+      <div class="space-y-2 max-h-[380px] overflow-y-auto pr-1" id="top10LeaderboardList">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <button onclick="App.toggleLeaderboardModal()"
+        class="btn-squishy-gold w-full py-2.5 px-4 text-xs font-extrabold mt-1">
+        Tutup & Semangat Belajar! ✨
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: LIGHTBOX FULLSCREEN ZOOM VIDEO ANATOMI (80-90% UKURAN LAYAR)       -->
+  <!-- ========================================================================= -->
+  <div id="videoZoomModal" class="hidden video-zoom-overlay" onclick="Simulasi3D.handleZoomBackdropClick(event)">
+
+    <!-- Tombol Tutup (X) di Pojok Kanan Atas Lightbox -->
+    <button type="button" onclick="Simulasi3D.closeVideoZoomModal(event)" class="video-zoom-close-btn"
+      title="Tutup (X)">
+      <span class="material-symbols-outlined text-[24px]">close</span>
+    </button>
+
+    <div class="zoom-modal-container" onclick="event.stopPropagation()">
+
+      <!-- Top Action Bar inside Modal -->
+      <div class="zoom-modal-header">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[20px] text-sky-400">zoom_in</span>
+          <span id="zoomModalTitle" class="font-heading text-sm sm:text-base font-extrabold text-white">
+            Simulasi Video 3D Resolusi Tinggi (Tampilan Zoom HD)
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <!-- Tombol X-Ray di dalam Modal -->
+          <button id="modalBtnXRay" type="button" onclick="Simulasi3D.toggleVideoXRay(event)"
+            class="px-3.5 py-1.5 rounded-full bg-white/20 hover:bg-white/30 active:scale-95 text-white text-xs font-bold border border-white/30 backdrop-blur-md shadow-md transition-all flex items-center gap-1.5 btn-xray-floating"
+            title="Toggle Mode X-Ray">
+            <span id="modalXrayBtnText">🔦 Mode X-Ray</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Giant 80-90% Screen Video Element -->
+      <div class="zoom-modal-video-wrapper">
+        <video id="zoom-modal-video" src="./assets/video_ikhtisar_napas.mp4" autoplay loop muted playsinline
+          disablePictureInPicture
+          onerror="if (!this.src.includes('video_utuh.mp4')) { this.src = './assets/video_utuh.mp4'; this.load(); this.play().catch(()=>{}); }">
+        </video>
+      </div>
+
+      <!-- Bottom Hint Bar -->
+      <div
+        class="w-full py-2 px-4 bg-slate-900/80 backdrop-blur-md border-t border-white/10 flex items-center justify-end text-[11px] text-slate-400 font-medium">
+        <span>Tekan <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">ESC</kbd> atau klik
+          di luar untuk
+          menutup</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: BEDAH MIKROSKOPIS ORGAN INTERAKTIF (DEEP ZOOM ANATOMI CLOSE-UP)     -->
+  <!-- ========================================================================= -->
+  <div id="modalBedahOrganDetail" class="hidden fixed inset-0 z-50 glass-modal-overlay items-center justify-center p-4">
+    <div class="glass-modal-content w-full max-w-lg p-6 flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
+
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <span id="bedahModalTag"
+            class="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 text-[10px] font-extrabold uppercase tracking-wide">
+            Bedah Mikroskopis
+          </span>
+          <h3 id="bedahModalTitle" class="font-heading text-lg font-extrabold text-slate-900 mt-0.5">
+            Nama Organ
+          </h3>
+        </div>
+        <button onclick="Simulasi3D.closeMicroscopicModal()"
+          class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors shadow-xs">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <!-- Dynamic Interactive Body -->
+      <div id="bedahModalBody">
+        <!-- Injected via Simulasi3D.openMicroscopicModal() -->
+      </div>
+
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-2">
+        <span class="text-[11px] text-slate-500 font-medium">💡 Sentuh tombol kontrol untuk mengamati fungsi
+          organ</span>
+        <button onclick="Simulasi3D.closeMicroscopicModal()" class="btn-squishy-primary py-2 px-4 text-xs font-bold">
+          Tutup Bedah
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Micro Toast Feedback Notification -->
+  <div id="portalToast"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full bg-slate-900/90 backdrop-blur-xl text-white font-heading text-xs font-bold shadow-2xl flex items-center gap-2.5 pointer-events-none opacity-0 translate-y-4 transition-all duration-300 z-[110] border border-white/20">
+    <span class="material-symbols-outlined text-[18px] text-emerald-400" id="toastIcon">check_circle</span>
+    <span id="toastMsg">Tindakan berhasil!</span>
+  </div>
+
+  <!-- Floating Action Button: Kembali ke Dashboard Guru (Mode Simulasi) -->
+  <button type="button" id="btnExitSimulation" onclick="App.exitTeacherStudentSimulation()"
+    style="position: fixed; bottom: 24px; right: 24px; z-index: 100; opacity: 0.7; transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;"
+    onmouseenter="this.style.opacity='1'; this.style.transform='translateY(-2px) scale(1.02)';"
+    onmouseleave="this.style.opacity='0.7'; this.style.transform='translateY(0) scale(1)';"
+    class="hidden items-center gap-2 px-3.5 py-2 rounded-full bg-slate-900/90 hover:bg-slate-900 text-white font-heading text-xs font-bold shadow-xl border border-white/20 backdrop-blur-md cursor-pointer select-none"
+    title="Kembali ke Dashboard Guru">
+    <span class="w-5 h-5 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center shrink-0 shadow-xs">
+      <span class="material-symbols-outlined text-[14px] font-bold">arrow_back</span>
+    </span>
+    <span class="tracking-tight text-slate-100">Kembali ke Dashboard Guru</span>
+  </button>
+
+  <!-- JavaScript Modules -->
+  <script src="js/materiData.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/avatars.js"></script>
+  <script src="js/simulasi3D.js"></script>
+  <script src="js/puzzleOrgan.js"></script>
+  <script src="js/detektifOrgan.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

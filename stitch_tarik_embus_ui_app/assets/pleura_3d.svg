@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="pleuraBgGrad" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#15263a"/>
+      <stop offset="60%" stop-color="#0a121e"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </radialGradient>
+
+    <!-- 3D Spot -->
+    <radialGradient id="pleuraSpot" cx="50%" cy="35%" r="45%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Lung Tissue Gradients -->
+    <radialGradient id="rightLungGrad" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fca5a5"/>
+      <stop offset="40%" stop-color="#f43f5e"/>
+      <stop offset="80%" stop-color="#be123c"/>
+      <stop offset="100%" stop-color="#881337"/>
+    </radialGradient>
+
+    <radialGradient id="leftLungGrad" cx="55%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fca5a5"/>
+      <stop offset="40%" stop-color="#f43f5e"/>
+      <stop offset="80%" stop-color="#be123c"/>
+      <stop offset="100%" stop-color="#881337"/>
+    </radialGradient>
+
+    <!-- Double Pleural Membrane Sheen (Selaput Pleura Rangkap Dua) -->
+    <linearGradient id="pleuralFluidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="30%" stop-color="#a5f3fc" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#0284c7" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <linearGradient id="visceralRim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#7dd3fc" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <filter id="pleuraShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.75"/>
+    </filter>
+
+    <filter id="membraneGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#pleuraBgGrad)"/>
+  <ellipse cx="400" cy="240" rx="340" ry="200" fill="url(#pleuraSpot)"/>
+
+  <!-- Unlabeled 3D Medical Axis Guidelines -->
+  <g opacity="0.08" stroke="#38bdf8" stroke-width="1">
+    <line x1="400" y1="30" x2="400" y2="450"/>
+    <ellipse cx="400" cy="240" rx="260" ry="170" fill="none" stroke-dasharray="6 6"/>
+  </g>
+
+  <!-- Central Trachea Outline above lungs -->
+  <g opacity="0.5">
+    <path d="M 380,45 L 380,120 L 420,120 L 420,45 Z" fill="#0284c7" opacity="0.3"/>
+    <path d="M 378,60 C 390,65 410,65 422,60" fill="none" stroke="#7dd3fc" stroke-width="4"/>
+    <path d="M 378,80 C 390,85 410,85 422,80" fill="none" stroke="#7dd3fc" stroke-width="4"/>
+    <path d="M 378,100 C 390,105 410,105 422,100" fill="none" stroke="#7dd3fc" stroke-width="4"/>
+  </g>
+
+  <!-- 3D LUNGS & DOUBLE-LAYERED PLEURA -->
+  <g filter="url(#pleuraShadow)">
+    <!-- ========================================== -->
+    <!-- RIGHT LUNG (3 Lobus) & DUAL PLEURA -->
+    <!-- ========================================== -->
+    <!-- 1. Right Lung Tissue Mass -->
+    <path d="M 360,130 
+             C 340,90 280,95 240,125 
+             C 175,170 145,260 150,340 
+             C 155,395 200,425 260,420 
+             C 320,415 365,370 370,300 
+             C 375,240 370,180 360,130 Z" 
+          fill="url(#rightLungGrad)"/>
+
+    <!-- Right Fissures (Pemotong 3 Lobus) -->
+    <path d="M 160,260 C 230,270 300,250 365,220" fill="none" stroke="#4c0519" stroke-width="2.5" opacity="0.6"/>
+    <path d="M 230,270 C 250,320 300,360 365,375" fill="none" stroke="#4c0519" stroke-width="2.5" opacity="0.6"/>
+
+    <!-- 2. Inner Layer: Pleura Visceralis (Melekat Erat pada Permukaan Paru) -->
+    <path d="M 360,130 
+             C 340,90 280,95 240,125 
+             C 175,170 145,260 150,340 
+             C 155,395 200,425 260,420 
+             C 320,415 365,370 370,300 
+             C 375,240 370,180 360,130 Z" 
+          fill="none" stroke="url(#visceralRim)" stroke-width="3" opacity="0.75"/>
+
+    <!-- 3. Cavitas Pleuralis (Rongga Berisi Cairan Pleura Pelumas Licin) -->
+    <!-- Translucent Fluid Cushion Envelope -->
+    <path d="M 365,122 
+             C 342,78 275,82 232,115 
+             C 162,162 130,258 135,346 
+             C 142,408 192,438 258,432 
+             C 325,426 374,378 378,302 
+             C 384,238 376,174 365,122 Z" 
+          fill="url(#pleuralFluidGrad)" opacity="0.35"/>
+
+    <!-- 4. Outer Layer: Pleura Parietalis (Selaput Luar Pembungkus Dinding Dada) -->
+    <path d="M 368,118 
+             C 343,72 272,78 228,112 
+             C 158,160 125,258 130,348 
+             C 138,414 190,444 258,438 
+             C 328,432 378,382 382,302 
+             C 388,236 380,170 368,118 Z" 
+          fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-dasharray="6 4" opacity="0.85" filter="url(#membraneGlow)"/>
+
+    <!-- Specular highlight on Right Pleura -->
+    <path d="M 230,120 C 185,155 160,225 160,300" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8" stroke-linecap="round"/>
+
+
+    <!-- ========================================== -->
+    <!-- LEFT LUNG (2 Lobus + Cardiac Notch) & DUAL PLEURA -->
+    <!-- ========================================== -->
+    <!-- 1. Left Lung Tissue Mass -->
+    <path d="M 440,130 
+             C 460,90 520,95 560,125 
+             C 625,170 655,260 650,340 
+             C 645,395 600,425 540,420 
+             C 490,415 455,385 445,335 
+             C 435,285 410,265 415,225 
+             C 420,185 432,150 440,130 Z" 
+          fill="url(#leftLungGrad)"/>
+
+    <!-- Left Oblique Fissure (Pemotong 2 Lobus) -->
+    <path d="M 640,240 C 580,270 510,330 450,380" fill="none" stroke="#4c0519" stroke-width="2.5" opacity="0.6"/>
+
+    <!-- Cardiac Notch Shadow (Lekukan Tempat Duduk Jantung Manusia) -->
+    <path d="M 415,225 C 410,265 435,285 445,335" fill="none" stroke="#4c0519" stroke-width="3" opacity="0.7"/>
+
+    <!-- 2. Inner Layer: Pleura Visceralis Kiri -->
+    <path d="M 440,130 
+             C 460,90 520,95 560,125 
+             C 625,170 655,260 650,340 
+             C 645,395 600,425 540,420 
+             C 490,415 455,385 445,335 
+             C 435,285 410,265 415,225 
+             C 420,185 432,150 440,130 Z" 
+          fill="none" stroke="url(#visceralRim)" stroke-width="3" opacity="0.75"/>
+
+    <!-- 3. Cavitas Pleuralis Kiri -->
+    <path d="M 435,122 
+             C 458,78 525,82 568,115 
+             C 638,162 670,258 665,346 
+             C 658,408 608,438 542,432 
+             C 488,426 448,392 438,340 
+             C 426,288 398,266 404,222 
+             C 410,180 424,142 435,122 Z" 
+          fill="url(#pleuralFluidGrad)" opacity="0.35"/>
+
+    <!-- 4. Outer Layer: Pleura Parietalis Kiri -->
+    <path d="M 432,118 
+             C 457,72 528,78 572,112 
+             C 642,160 675,258 670,348 
+             C 662,414 610,444 542,438 
+             C 486,432 444,396 434,342 
+             C 422,290 394,266 400,220 
+             C 406,176 422,138 432,118 Z" 
+          fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-dasharray="6 4" opacity="0.85" filter="url(#membraneGlow)"/>
+
+    <!-- Specular highlight on Left Pleura -->
+    <path d="M 570,120 C 615,155 640,225 640,300" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Clean Subtle 3D Glass Vignette Ring -->
+  <rect x="12" y="12" width="776" height="456" rx="28" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.2"/>
+</svg>
+

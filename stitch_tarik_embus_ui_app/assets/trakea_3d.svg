@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="tracheaBgGrad" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#15263a"/>
+      <stop offset="60%" stop-color="#0a121e"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </radialGradient>
+
+    <!-- 3D Spot -->
+    <radialGradient id="tracheaSpot" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Cartilaginous Ring 3D Gradient -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="25%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="85%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+
+    <linearGradient id="innerLumenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <filter id="tracheaShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#tracheaBgGrad)"/>
+  <ellipse cx="400" cy="240" rx="320" ry="200" fill="url(#tracheaSpot)"/>
+
+  <!-- Unlabeled 3D Medical Axis Guidelines -->
+  <g opacity="0.08" stroke="#38bdf8" stroke-width="1">
+    <line x1="400" y1="30" x2="400" y2="450"/>
+    <ellipse cx="400" cy="240" rx="220" ry="160" fill="none" stroke-dasharray="6 6"/>
+  </g>
+
+  <!-- 3D TRACHEA CYLINDER (Batang Tenggorok Bercincin Tulang Rawan C-Shape) -->
+  <g filter="url(#tracheaShadow)">
+    <!-- Trachea Inner Cylinder Tube -->
+    <path d="M 330,60 L 330,420 L 470,420 L 470,60 Z" fill="url(#innerLumenGrad)"/>
+
+    <!-- 10 C-Shaped Hyaline Cartilage Rings Stacked Vertically -->
+    <!-- Ring 1 -->
+    <g>
+      <ellipse cx="400" cy="70" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,70 C 360,82 440,82 470,70" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 2 -->
+    <g>
+      <ellipse cx="400" cy="105" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,105 C 360,117 440,117 470,105" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 3 -->
+    <g>
+      <ellipse cx="400" cy="140" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,140 C 360,152 440,152 470,140" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 4 -->
+    <g>
+      <ellipse cx="400" cy="175" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,175 C 360,187 440,187 470,175" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 5 -->
+    <g>
+      <ellipse cx="400" cy="210" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,210 C 360,222 440,222 470,210" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 6 -->
+    <g>
+      <ellipse cx="400" cy="245" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,245 C 360,257 440,257 470,245" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 7 -->
+    <g>
+      <ellipse cx="400" cy="280" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,280 C 360,292 440,292 470,280" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 8 -->
+    <g>
+      <ellipse cx="400" cy="315" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,315 C 360,327 440,327 470,315" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 9 -->
+    <g>
+      <ellipse cx="400" cy="350" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,350 C 360,362 440,362 470,350" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <!-- Ring 10 -->
+    <g>
+      <ellipse cx="400" cy="385" rx="75" ry="16" fill="none" stroke="url(#ringGrad)" stroke-width="12"/>
+      <path d="M 330,385 C 360,397 440,397 470,385" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+
+    <!-- Vertical Specular Light Beam down the front of the trachea -->
+    <line x1="365" y1="60" x2="365" y2="400" stroke="#ffffff" stroke-width="3" opacity="0.6" stroke-linecap="round"/>
+    <line x1="375" y1="60" x2="375" y2="400" stroke="#7dd3fc" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Clean Subtle 3D Glass Vignette Ring -->
+  <rect x="12" y="12" width="776" height="456" rx="28" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.2"/>
+</svg>
+
